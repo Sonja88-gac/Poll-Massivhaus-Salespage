@@ -1870,10 +1870,9 @@ h2.section-title{
             <input type="hidden" name="subject" value="Neue Anfrage über die Poll Massivhaus Landingpage">
             <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
             <div class="form-row">
-              <div class="field"><label for="fVorname">Vorname</label><input type="text" id="fVorname" name="vorname" autocomplete="given-name"></div>
-              <div class="field"><label for="fNachname">Nachname</label><input type="text" id="fNachname" name="nachname" autocomplete="family-name"></div>
+              <div class="field"><label for="fName">Name</label><input type="text" id="fName" name="name" autocomplete="name"></div>
+              <div class="field"><label for="fPhone">Telefon*</label><input type="tel" id="fPhone" name="phone" required autocomplete="tel"><span class="field-error" id="fPhoneError"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Feld ist erforderlich</span></div>
             </div>
-            <div class="field"><label for="fPhone">Telefon*</label><input type="tel" id="fPhone" name="phone" required autocomplete="tel"><span class="field-error" id="fPhoneError"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Feld ist erforderlich</span></div>
             <div class="field"><label for="fEmail">E-Mail*</label><input type="email" id="fEmail" name="email" required autocomplete="email"><span class="field-error" id="fEmailError"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Feld ist erforderlich</span></div>
             <div class="field"><label for="fHaustyp">Gewünschte Hausart</label>
               <div class="select-wrap">
@@ -2385,9 +2384,6 @@ contactForm.addEventListener('submit', async (e) => {
   formSubmitBtn.textContent = 'Wird gesendet …';
   try {
     const payload = Object.fromEntries(new FormData(contactForm));
-    const vorname = (payload.vorname || '').trim();
-    const nachname = (payload.nachname || '').trim();
-    payload.name = [vorname, nachname].filter(Boolean).join(' ');
     const response = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
