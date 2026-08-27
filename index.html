@@ -397,6 +397,10 @@ h2.section-title{
 .check-row input{margin-top:4px;flex:none;width:16px;height:16px;accent-color:var(--red);}
 .check-row label{font-size:13px;line-height:1.55;color:var(--ink-45);}
 .check-row a{text-decoration:underline;color:var(--ink-65);}
+.field-error{display:none;align-items:center;gap:6px;margin-top:6px;font-size:12.5px;color:var(--red-dark);}
+.field-error.is-visible{display:flex;}
+.field-error svg{width:14px;height:14px;flex:none;opacity:.9;}
+.field input.is-invalid,.field select.is-invalid{border-color:var(--red-dark);}
 .form-submit{width:100%;justify-content:center;}
 .form-fineprint{margin-top:16px;font-size:12.5px;color:var(--ink-45);text-align:center;}
 .form-success{display:none;text-align:center;padding:40px 10px;}
@@ -1866,13 +1870,14 @@ h2.section-title{
             <input type="hidden" name="subject" value="Neue Anfrage über die Poll Massivhaus Landingpage">
             <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
             <div class="form-row">
-              <div class="field"><label for="fName">Name*</label><input type="text" id="fName" name="name" required autocomplete="name"></div>
-              <div class="field"><label for="fPhone">Telefon</label><input type="tel" id="fPhone" name="phone" autocomplete="tel"></div>
+              <div class="field"><label for="fVorname">Vorname</label><input type="text" id="fVorname" name="vorname" autocomplete="given-name"></div>
+              <div class="field"><label for="fNachname">Nachname</label><input type="text" id="fNachname" name="nachname" autocomplete="family-name"></div>
             </div>
-            <div class="field"><label for="fEmail">E-Mail*</label><input type="email" id="fEmail" name="email" required autocomplete="email"></div>
+            <div class="field"><label for="fPhone">Telefon*</label><input type="tel" id="fPhone" name="phone" required autocomplete="tel"><span class="field-error" id="fPhoneError"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Feld ist erforderlich</span></div>
+            <div class="field"><label for="fEmail">E-Mail*</label><input type="email" id="fEmail" name="email" required autocomplete="email"><span class="field-error" id="fEmailError"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Feld ist erforderlich</span></div>
             <div class="field"><label for="fHaustyp">Gewünschte Hausart</label>
               <div class="select-wrap">
-                <select id="fHaustyp" name="haustyp" required>
+                <select id="fHaustyp" name="haustyp">
                   <option value="" selected disabled>Bitte Hausart auswählen</option>
                   <option value="Einfamilienhaus">Einfamilienhaus</option>
                   <option value="Haus mit Einliegerwohnung">Haus mit Einliegerwohnung</option>
@@ -1889,13 +1894,13 @@ h2.section-title{
             <div class="form-row" style="margin-top:18px;">
               <div class="field"><label for="fGrundstueck">Grundstück</label>
                 <div class="select-wrap">
-                  <select id="fGrundstueck" name="grundstueck"><option value="vorhanden">Bereits vorhanden</option><option value="aussicht">Grundstück in Aussicht</option><option value="suche">Noch auf Grundstücksuche</option></select>
+                  <select id="fGrundstueck" name="grundstueck"><option value="" selected disabled>Bitte wählen</option><option value="vorhanden">Bereits vorhanden</option><option value="aussicht">Grundstück in Aussicht</option><option value="suche">Noch auf Grundstücksuche</option></select>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                 </div>
               </div>
               <div class="field"><label for="fStand">Planungsstand</label>
                 <div class="select-wrap">
-                  <select id="fStand" name="planungsstand"><option value="anfang">Ganz am Anfang</option><option value="vorstellungen">Erste Vorstellungen vorhanden</option><option value="konkret">Planung bereits konkreter</option></select>
+                  <select id="fStand" name="planungsstand"><option value="" selected disabled>Bitte wählen</option><option value="anfang">Ganz am Anfang</option><option value="vorstellungen">Erste Vorstellungen vorhanden</option><option value="konkret">Planung bereits konkreter</option></select>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                 </div>
               </div>
@@ -1905,6 +1910,7 @@ h2.section-title{
               <input type="checkbox" id="fPrivacy" name="privacy" required>
               <label for="fPrivacy">Ich habe die <a href="https://www.poll-gruppe.com/datenschutz" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Daten zur Kontaktaufnahme einverstanden.*</label>
             </div>
+            <span class="field-error" id="fPrivacyError"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Feld ist erforderlich</span>
             <button type="submit" class="btn btn-primary btn-lg form-submit">Unverbindliches Erstgespräch anfragen</button>
             <div class="form-trust">
               <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Kostenlos &amp; unverbindlich</span>
@@ -2345,13 +2351,43 @@ const contactForm = document.getElementById('contactForm');
 const formSuccess = document.getElementById('formSuccess');
 const formSubmitBtn = contactForm.querySelector('.form-submit');
 const formSubmitLabel = formSubmitBtn.textContent;
+
+const requiredFields = [
+  document.getElementById('fPhone'),
+  document.getElementById('fEmail'),
+  document.getElementById('fPrivacy')
+];
+function clearFieldError(el) {
+  el.classList.remove('is-invalid');
+  const err = document.getElementById(el.id + 'Error');
+  if (err) err.classList.remove('is-visible');
+}
+function setFieldError(el) {
+  el.classList.add('is-invalid');
+  const err = document.getElementById(el.id + 'Error');
+  if (err) err.classList.add('is-visible');
+}
+requiredFields.forEach((el) => {
+  el.addEventListener(el.type === 'checkbox' ? 'change' : 'input', () => {
+    if (el.checkValidity()) clearFieldError(el);
+  });
+});
+
 contactForm.addEventListener('submit', async (e) => {
   e.preventDefault();
-  if (!contactForm.checkValidity()){ contactForm.reportValidity(); return; }
+  let firstInvalid = null;
+  requiredFields.forEach((el) => {
+    if (el.checkValidity()) { clearFieldError(el); }
+    else { setFieldError(el); if (!firstInvalid) firstInvalid = el; }
+  });
+  if (firstInvalid) { firstInvalid.focus(); return; }
   formSubmitBtn.disabled = true;
   formSubmitBtn.textContent = 'Wird gesendet …';
   try {
     const payload = Object.fromEntries(new FormData(contactForm));
+    const vorname = (payload.vorname || '').trim();
+    const nachname = (payload.nachname || '').trim();
+    payload.name = [vorname, nachname].filter(Boolean).join(' ');
     const response = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
