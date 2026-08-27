@@ -1861,9 +1861,10 @@ h2.section-title{
 
       <div class="reveal">
         <div class="contact-card">
-          <!-- TODO (Implementierung): Formular-Backend anbinden (z. B. eigener Endpunkt, E-Mail-Versand oder CRM-Anbindung).
-               Aktuell wird die Anfrage clientseitig validiert und eine Erfolgsmeldung angezeigt, aber noch nicht versendet. -->
           <form id="contactForm" novalidate>
+            <input type="hidden" name="access_key" value="7f788327-fe6b-462f-b91f-98ea98836c75">
+            <input type="hidden" name="subject" value="Neue Anfrage über die Poll Massivhaus Landingpage">
+            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
             <div class="form-row">
               <div class="field"><label for="fName">Name*</label><input type="text" id="fName" name="name" required autocomplete="name"></div>
               <div class="field"><label for="fPhone">Telefon</label><input type="tel" id="fPhone" name="phone" autocomplete="tel"></div>
@@ -2339,16 +2340,33 @@ if (refHeroImg && refThumbs.length){
   document.getElementById('refNext').addEventListener('click', () => refFilmstrip.scrollBy({left: 220, behavior:'smooth'}));
 }
 
-/* ---------- Contact form (client-side demo handling) ---------- */
+/* ---------- Contact form (Web3Forms) ---------- */
 const contactForm = document.getElementById('contactForm');
 const formSuccess = document.getElementById('formSuccess');
-contactForm.addEventListener('submit', (e) => {
+const formSubmitBtn = contactForm.querySelector('.form-submit');
+const formSubmitLabel = formSubmitBtn.textContent;
+contactForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   if (!contactForm.checkValidity()){ contactForm.reportValidity(); return; }
-  // TODO: hier echten Versand implementieren (fetch an Backend / E-Mail-Dienst)
-  contactForm.style.display = 'none';
-  formSuccess.classList.add('is-visible');
-  formSuccess.scrollIntoView({behavior:'smooth', block:'center'});
+  formSubmitBtn.disabled = true;
+  formSubmitBtn.textContent = 'Wird gesendet …';
+  try {
+    const payload = Object.fromEntries(new FormData(contactForm));
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    const result = await response.json();
+    if (!result.success) throw new Error(result.message || 'Versand fehlgeschlagen');
+    contactForm.style.display = 'none';
+    formSuccess.classList.add('is-visible');
+    formSuccess.scrollIntoView({behavior:'smooth', block:'center'});
+  } catch (err) {
+    formSubmitBtn.disabled = false;
+    formSubmitBtn.textContent = formSubmitLabel;
+    alert('Ihre Anfrage konnte leider nicht gesendet werden. Bitte versuchen Sie es erneut oder rufen Sie uns direkt an: 02695 88 23 900.');
+  }
 });
 
 /* ============================================================
