@@ -19,18 +19,19 @@
   --line:#E2D9C6; --line-soft:#EEE7D8; --white:#FFFFFF;
   --shadow-sm:0 2px 10px rgba(28,26,23,.06); --shadow-md:0 12px 34px -10px rgba(28,26,23,.22); --shadow-lg:0 30px 70px -24px rgba(28,26,23,.35);
   --radius-s:3px; --radius-m:6px; --radius-l:10px;
-  --container-narrow:640px;
+  --container-narrow:640px; --container-wide:1040px;
   --font-serif:'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-sans:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --ease:cubic-bezier(.16,.8,.24,1);
 }
 *,*::before,*::after{box-sizing:border-box;}
-body{margin:0;font-family:var(--font-sans);color:var(--ink);background:var(--stone-25);-webkit-font-smoothing:antialiased;}
+body{margin:0;font-family:var(--font-sans);color:var(--ink);background:var(--stone-25);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
 img{max-width:100%;display:block;}
 a{color:inherit;text-decoration:none;}
 ul,ol{margin:0;padding:0;list-style:none;}
 h1,h2,h3,h4,p{margin:0;}
 .container{max-width:var(--container-narrow);margin:0 auto;padding:0 24px;}
+.container-wide{max-width:var(--container-wide);margin:0 auto;padding:0 24px;}
 
 .site-header{padding:26px 0;text-align:center;}
 .site-header img{height:34px;margin:0 auto;}
@@ -54,20 +55,36 @@ main{padding:20px 0 80px;}
 .step h4{font-family:var(--font-serif);font-weight:700;font-size:17px;}
 .step p{margin-top:6px;font-size:14.5px;line-height:1.6;color:var(--ink-65);}
 
-.trust-section{padding:0 0 56px;}
-.t-card{background:var(--white);border:1px solid var(--line-soft);border-radius:var(--radius-l);padding:28px 26px;box-shadow:var(--shadow-sm);}
-.t-stars{display:flex;gap:2px;justify-content:center;}
-.t-stars svg{width:14px;height:14px;color:#E8A93A;}
-.t-quote{margin-top:14px;font-size:15px;line-height:1.65;color:var(--ink-80);text-align:center;}
-.t-meta{margin-top:14px;display:flex;justify-content:center;gap:10px;font-size:13px;color:var(--ink-45);}
-.t-meta .name{font-weight:700;color:var(--ink);}
-.t-badge{margin-top:10px;display:flex;justify-content:center;align-items:center;gap:6px;font-size:11px;font-weight:700;color:var(--ink-45);letter-spacing:.02em;}
+.trust-section{padding:0 0 56px;text-align:center;}
+.trust-section .eyebrow{justify-content:center;}
+.trust-section h2{font-family:var(--font-serif);font-weight:700;font-size:clamp(22px,3.5vw,28px);margin-top:14px;}
+.t-track-wrap{position:relative;margin-top:36px;overflow:hidden;}
+.t-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:8px;scrollbar-width:none;cursor:grab;user-select:none;}
+.t-track.is-dragging{cursor:grabbing;scroll-behavior:auto;scroll-snap-type:none;}
+.t-track::-webkit-scrollbar{display:none;}
+.t-card{scroll-snap-align:start;flex:0 0 calc((100% - 40px)/3);background:var(--white);border:1px solid var(--line-soft);border-radius:var(--radius-m);padding:28px 26px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:14px;text-align:left;}
+@media (max-width:900px){.t-card{flex:0 0 calc((100% - 20px)/2);}}
+@media (max-width:640px){.t-card{flex:0 0 100%;}}
+.t-stars{display:flex;gap:2px;}
+.t-stars svg{width:13px;height:13px;color:#E8A93A;}
+.t-quote{font-size:14.5px;line-height:1.62;color:var(--ink-80);flex:1;}
+.t-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:14px;border-top:1px solid var(--line-soft);}
+.t-meta .name{font-weight:700;font-size:13px;color:var(--ink);}
+.t-meta .time{font-size:11.5px;color:var(--ink-45);white-space:nowrap;}
+.t-badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:var(--ink-45);letter-spacing:.02em;}
 .t-badge svg{width:12px;height:12px;flex:none;}
+.t-controls{display:flex;align-items:center;justify-content:center;gap:20px;margin-top:28px;}
+.t-arrow{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);background:var(--white);display:flex;align-items:center;justify-content:center;transition:all .25s var(--ease);flex:none;}
+.t-arrow:hover{border-color:var(--ink);background:var(--ink);color:#fff;}
+.t-arrow svg{width:17px;height:17px;}
+.t-dots{display:flex;gap:8px;}
+.t-dot{width:8px;height:8px;border-radius:50%;background:var(--line);border:none;padding:0;transition:all .25s var(--ease);}
+.t-dot.is-active{background:var(--red);width:22px;border-radius:100px;}
 
 .support-section{text-align:center;}
 .support-section .support-line{font-size:14.5px;color:var(--ink-65);}
-.support-section .support-line a{font-weight:700;color:var(--ink);text-decoration:underline;}
-.cta-row{margin-top:26px;display:flex;flex-direction:column;align-items:center;gap:14px;}
+.support-section .support-line a{font-weight:700;color:var(--ink);text-decoration:underline;white-space:nowrap;}
+.cta-row{margin-top:26px;display:flex;flex-direction:column;align-items:center;gap:22px;}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--font-sans);font-weight:700;font-size:14.5px;letter-spacing:.01em;padding:15px 30px;border-radius:var(--radius-s);background:var(--red);color:var(--white);box-shadow:0 10px 24px -10px rgba(214,0,28,.55);transition:background .25s var(--ease), box-shadow .25s var(--ease);}
 .btn:hover{background:var(--red-dark);box-shadow:0 14px 30px -10px rgba(214,0,28,.65);}
 .back-link{font-size:13.5px;color:var(--ink-45);text-decoration:underline;}
@@ -89,7 +106,7 @@ main{padding:20px 0 80px;}
     <section class="danke-hero">
       <div class="check-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
       <h1>Vielen Dank für Ihre Anfrage!</h1>
-      <p>Wir haben Ihre Anfrage erhalten und melden uns zeitnah persönlich bei Ihnen, um Ihr Bauvorhaben zu besprechen.</p>
+      <p>Schön, dass Sie sich für ein Gespräch mit uns entschieden haben. Wie es jetzt für Sie weitergeht, erfahren Sie hier.</p>
     </section>
 
     <section class="steps-section">
@@ -112,20 +129,72 @@ main{padding:20px 0 80px;}
         </div>
       </div>
     </section>
+  </div>
 
-    <section class="trust-section">
-      <div class="t-card">
-        <div class="t-stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg></div>
-        <p class="t-quote">„Top Firma. Hier bekommt man Qualität geliefert und sie wissen, was sie tun. Ich bin sehr zufrieden und würde jederzeit wieder mit Ihnen bauen. Weiter so.“</p>
-        <div class="t-meta"><span class="name">Markus Durben</span><span class="time">vor 2 Jahren</span></div>
-        <div class="t-badge"><svg viewBox="0 0 24 24" fill="none"><path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12s3.36-7.27 7.19-7.27c3.08 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.19 2C6.42 2 2.03 6.8 2.03 12s4.39 10 10.16 10c5.06 0 9.81-3.64 9.81-10 0-.6-.09-1.1-.16-1.36" fill="#4285F4"/></svg>Google-Rezension</div>
+  <section class="trust-section">
+    <div class="container-wide">
+      <p class="eyebrow">Das sagen unsere Bauherren</p>
+      <h2>Was Kunden über uns sagen</h2>
+      <div class="t-track-wrap">
+        <div class="t-track" id="tTrack">
+
+          <div class="t-card">
+            <div class="t-stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg></div>
+            <p class="t-quote">„Viele in unserem Umfeld haben Horrorstories vom Bau – wir gehören nicht dazu. Wir haben im Raum Bonn mit Poll Massivhaus ein Einfamilienhaus gebaut und sind auch jetzt, 2 Jahre nach Einzug, rundum zufrieden. Mit unserem Bauleiter haben wir ein gutes Team gebildet, die Kommunikation hat gestimmt, und letztlich ist wirklich alles nach Plan verlaufen – trotz der schwierigen Lieferkettensituation in den Jahren 2021 und 2022.“</p>
+            <div class="t-meta"><span class="name">Anne-Marie Christian</span><span class="time">vor 2 Jahren</span></div>
+            <div class="t-badge"><svg viewBox="0 0 24 24" fill="none"><path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12s3.36-7.27 7.19-7.27c3.08 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.19 2C6.42 2 2.03 6.8 2.03 12s4.39 10 10.16 10c5.06 0 9.81-3.64 9.81-10 0-.6-.09-1.1-.16-1.36" fill="#4285F4"/></svg>Google-Rezension</div>
+          </div>
+
+          <div class="t-card">
+            <div class="t-stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg></div>
+            <p class="t-quote">„Wir haben zwei Doppelhaushälften in Auftrag gegeben und sind rundum begeistert. Schon die Beratung in der Angebotsphase war äußerst kompetent und transparent. Als Laie fühlte ich mich jederzeit bestens betreut und konnte mich auf eine ehrliche, hochwertige und vertrauenswürdige Baufirma verlassen. Keine versteckten Kosten oder Nachträge – alles so, wie vereinbart.“</p>
+            <div class="t-meta"><span class="name">D., Local Guide</span><span class="time">vor 9 Monaten</span></div>
+            <div class="t-badge"><svg viewBox="0 0 24 24" fill="none"><path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12s3.36-7.27 7.19-7.27c3.08 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.19 2C6.42 2 2.03 6.8 2.03 12s4.39 10 10.16 10c5.06 0 9.81-3.64 9.81-10 0-.6-.09-1.1-.16-1.36" fill="#4285F4"/></svg>Google-Rezension · Doppelhaus</div>
+          </div>
+
+          <div class="t-card">
+            <div class="t-stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg></div>
+            <p class="t-quote">„Die Zusammenarbeit mit der POLL Gruppe war von Anfang an sehr professionell und gleichzeitig angenehm unkompliziert. Standardprozess wird hier nicht abgespult, sondern wirklich auf unsere individuelle Situation eingegangen. Erfahrung trifft hier auf echte Beratung.“</p>
+            <div class="t-meta"><span class="name">Dirk Hendrischke</span><span class="time">vor 3 Monaten</span></div>
+            <div class="t-badge"><svg viewBox="0 0 24 24" fill="none"><path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12s3.36-7.27 7.19-7.27c3.08 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.19 2C6.42 2 2.03 6.8 2.03 12s4.39 10 10.16 10c5.06 0 9.81-3.64 9.81-10 0-.6-.09-1.1-.16-1.36" fill="#4285F4"/></svg>Google-Rezension</div>
+          </div>
+
+          <div class="t-card">
+            <div class="t-stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg></div>
+            <p class="t-quote">„Von Anfang an war die Zusammenarbeit offen und ehrlich, man konnte über alles sprechen. Änderungen wurden stets kulant, fair und transparent verrechnet. Im Vergleich zu anderen Bauherren im Neubaugebiet können wir sagen: Hier passt einfach alles.“</p>
+            <div class="t-meta"><span class="name">Daniel Pitsch</span><span class="time">vor 11 Monaten</span></div>
+            <div class="t-badge"><svg viewBox="0 0 24 24" fill="none"><path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12s3.36-7.27 7.19-7.27c3.08 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.19 2C6.42 2 2.03 6.8 2.03 12s4.39 10 10.16 10c5.06 0 9.81-3.64 9.81-10 0-.6-.09-1.1-.16-1.36" fill="#4285F4"/></svg>Google-Rezension</div>
+          </div>
+
+          <div class="t-card">
+            <div class="t-stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg></div>
+            <p class="t-quote">„Kleinere Probleme wurden vom Geschäftsführer, Jarno Poll, persönlich sofort aufgenommen und gelöst. Während der Bauphase fühlten wir uns bestens betreut, die Erreichbarkeit war immer gegeben. Ein großes Dankeschön an Jarno Poll und seine Mitarbeiter.“</p>
+            <div class="t-meta"><span class="name">K. R.</span><span class="time">Einfamilienhaus, schlüsselfertig</span></div>
+            <div class="t-badge"><svg viewBox="0 0 24 24" fill="none"><path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12s3.36-7.27 7.19-7.27c3.08 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.19 2C6.42 2 2.03 6.8 2.03 12s4.39 10 10.16 10c5.06 0 9.81-3.64 9.81-10 0-.6-.09-1.1-.16-1.36" fill="#4285F4"/></svg>Google-Rezension</div>
+          </div>
+
+          <div class="t-card">
+            <div class="t-stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg></div>
+            <p class="t-quote">„Top Firma. Hier bekommt man Qualität geliefert und sie wissen, was sie tun. Ich bin sehr zufrieden und würde jederzeit wieder mit Ihnen bauen. Weiter so.“</p>
+            <div class="t-meta"><span class="name">Markus Durben</span><span class="time">vor 2 Jahren</span></div>
+            <div class="t-badge"><svg viewBox="0 0 24 24" fill="none"><path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12s3.36-7.27 7.19-7.27c3.08 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.19 2C6.42 2 2.03 6.8 2.03 12s4.39 10 10.16 10c5.06 0 9.81-3.64 9.81-10 0-.6-.09-1.1-.16-1.36" fill="#4285F4"/></svg>Google-Rezension</div>
+          </div>
+
+        </div>
+        <div class="t-controls">
+          <button class="t-arrow" id="tPrev" aria-label="Vorherige Bewertung"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+          <div class="t-dots" id="tDots"></div>
+          <button class="t-arrow" id="tNext" aria-label="Nächste Bewertung"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
+  <div class="container">
     <section class="support-section">
       <p class="support-line">Sie möchten schneller mit uns sprechen? Rufen Sie uns gerne direkt an: <a href="tel:+4926958823900">02695 88 23 900</a></p>
       <div class="cta-row">
-        <a href="index.html#referenzen" class="btn">Unsere Referenzhäuser entdecken</a>
+        <a href="index.html#hausarten" class="btn">Unsere Beispielhäuser entdecken</a>
         <a href="index.html" class="back-link">Zurück zur Startseite</a>
       </div>
     </section>
@@ -142,6 +211,58 @@ main{padding:20px 0 80px;}
   </div>
 </footer>
 
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const tTrack = document.getElementById('tTrack');
+const tCards = Array.from(tTrack.children);
+const tDotsWrap = document.getElementById('tDots');
+tCards.forEach((_, i) => {
+  const dot = document.createElement('button');
+  dot.className = 't-dot' + (i === 0 ? ' is-active' : '');
+  dot.setAttribute('aria-label', 'Bewertung ' + (i+1));
+  dot.addEventListener('click', () => scrollToTCard(i));
+  tDotsWrap.appendChild(dot);
+});
+const tDots = Array.from(tDotsWrap.children);
+function tCardStep(){ return tCards[0].getBoundingClientRect().width + 20; }
+function scrollToTCard(i){
+  i = Math.max(0, Math.min(i, tCards.length - 1));
+  tTrack.scrollTo({left: i * tCardStep(), behavior:'smooth'});
+}
+function tCurrentIndex(){ return Math.round(tTrack.scrollLeft / tCardStep()); }
+document.getElementById('tPrev').addEventListener('click', () => scrollToTCard(tCurrentIndex() - 1));
+document.getElementById('tNext').addEventListener('click', () => scrollToTCard(tCurrentIndex() + 1));
+tTrack.addEventListener('scroll', () => {
+  window.requestAnimationFrame(() => {
+    const idx = tCurrentIndex();
+    tDots.forEach((d, i) => d.classList.toggle('is-active', i === idx));
+  });
+}, {passive:true});
+
+/* Pointer drag-to-scroll for desktop mouse users (touch swipe works natively) */
+(function enableDrag(track){
+  let isDown = false, startX = 0, startScroll = 0, moved = false;
+  track.addEventListener('pointerdown', (e) => {
+    isDown = true; moved = false; track.classList.add('is-dragging');
+    startX = e.clientX; startScroll = track.scrollLeft;
+    track.setPointerCapture(e.pointerId);
+  });
+  track.addEventListener('pointermove', (e) => {
+    if (!isDown) return;
+    const dx = e.clientX - startX;
+    if (Math.abs(dx) > 4) moved = true;
+    track.scrollLeft = startScroll - dx;
+  });
+  function endDrag(){
+    if (!isDown) return;
+    isDown = false; track.classList.remove('is-dragging');
+    scrollToTCard(tCurrentIndex());
+  }
+  track.addEventListener('pointerup', endDrag);
+  track.addEventListener('pointerleave', endDrag);
+  track.addEventListener('click', (e) => { if (moved) e.preventDefault(); }, true);
+})(tTrack);
+</script>
 </body>
 </html>
