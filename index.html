@@ -403,12 +403,6 @@ h2.section-title{
 .field input.is-invalid,.field select.is-invalid{border-color:var(--red-dark);}
 .form-submit{width:100%;justify-content:center;}
 .form-fineprint{margin-top:16px;font-size:12.5px;color:var(--ink-45);text-align:center;}
-.form-success{display:none;text-align:center;padding:40px 10px;}
-.form-success.is-visible{display:block;}
-.form-success .check-circle{width:60px;height:60px;border-radius:50%;background:var(--red-light);color:var(--red);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;}
-.form-success .check-circle svg{width:26px;height:26px;}
-.form-success h4{font-family:var(--font-serif);font-size:22px;font-weight:700;}
-.form-success p{margin-top:10px;font-size:14.5px;color:var(--ink-65);line-height:1.6;}
 @media (max-width:900px){.contact-grid{grid-template-columns:1fr;gap:40px;}.contact-card{padding:30px 24px;}}
 @media (max-width:560px){.form-row{grid-template-columns:1fr;}}
 
@@ -1917,11 +1911,6 @@ h2.section-title{
               <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Keine Verpflichtung</span>
             </div>
           </form>
-          <div class="form-success" id="formSuccess">
-            <div class="check-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <h4>Vielen Dank für Ihre Nachricht</h4>
-            <p>Wir haben Ihre Anfrage erhalten und melden uns zeitnah persönlich bei Ihnen, um Ihr Bauvorhaben zu besprechen.</p>
-          </div>
         </div>
       </div>
     </div>
@@ -2347,7 +2336,6 @@ if (refHeroImg && refThumbs.length){
 
 /* ---------- Contact form (Web3Forms) ---------- */
 const contactForm = document.getElementById('contactForm');
-const formSuccess = document.getElementById('formSuccess');
 const formSubmitBtn = contactForm.querySelector('.form-submit');
 const formSubmitLabel = formSubmitBtn.textContent;
 
@@ -2391,9 +2379,7 @@ contactForm.addEventListener('submit', async (e) => {
     });
     const result = await response.json();
     if (!result.success) throw new Error(result.message || 'Versand fehlgeschlagen');
-    contactForm.style.display = 'none';
-    formSuccess.classList.add('is-visible');
-    formSuccess.scrollIntoView({behavior:'smooth', block:'center'});
+    window.location.href = 'danke.html';
   } catch (err) {
     formSubmitBtn.disabled = false;
     formSubmitBtn.textContent = formSubmitLabel;
