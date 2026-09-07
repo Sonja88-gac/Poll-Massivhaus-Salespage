@@ -13,11 +13,11 @@
 <meta property="og:url" content="https://massivhaus.poll-gruppe.com/">
 <meta property="og:title" content="Poll Massivhaus | Ihr Baupartner für individuell geplante Massivhäuser">
 <meta property="og:description" content="Poll Massivhaus baut individuell geplante Einfamilienhäuser, Doppelhäuser und Häuser mit Einliegerwohnung – transparent, persönlich begleitet, in Massivbauweise. Vereinbaren Sie ein unverbindliches Erstgespräch.">
-<meta property="og:image" content="https://massivhaus.poll-gruppe.com/assets/img/hero-poll-new.jpg">
+<meta property="og:image" content="https://massivhaus.poll-gruppe.com/assets/img/hero-haus-start.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Poll Massivhaus | Ihr Baupartner für individuell geplante Massivhäuser">
 <meta name="twitter:description" content="Poll Massivhaus baut individuell geplante Einfamilienhäuser, Doppelhäuser und Häuser mit Einliegerwohnung – transparent, persönlich begleitet, in Massivbauweise. Vereinbaren Sie ein unverbindliches Erstgespräch.">
-<meta name="twitter:image" content="https://massivhaus.poll-gruppe.com/assets/img/hero-poll-new.jpg">
+<meta name="twitter:image" content="https://massivhaus.poll-gruppe.com/assets/img/hero-haus-start.jpg">
 <meta name="theme-color" content="#D6001C">
 <link rel="icon" href="assets/img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -717,8 +717,8 @@ h2.section-title{
 .marquee-track{display:flex;width:max-content;animation:marquee-scroll 34s linear infinite;}
 .marquee-viewport:hover .marquee-track{animation-play-state:paused;}
 .marquee-group{display:flex;gap:20px;padding-right:20px;flex:none;}
-.marquee-logo{display:flex;align-items:center;gap:10px;padding:14px 24px;background:rgba(255,255,255,.04);border:1px solid var(--charcoal-line);border-radius:var(--radius-m);white-space:nowrap;color:rgba(255,255,255,.55);font-weight:700;font-size:13px;flex:none;}
-.marquee-logo svg{width:20px;height:20px;flex:none;color:rgba(255,255,255,.38);}
+.marquee-logo{display:flex;align-items:center;justify-content:center;padding:16px 28px;background:rgba(255,255,255,.96);border:1px solid var(--charcoal-line);border-radius:var(--radius-m);white-space:nowrap;flex:none;}
+.marquee-logo img{height:30px;width:auto;max-width:130px;object-fit:contain;}
 @keyframes marquee-scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 @media (prefers-reduced-motion: reduce){.marquee-track{animation:none;}}
 
@@ -745,6 +745,7 @@ h2.section-title{
 .footer-badge{display:flex;align-items:center;justify-content:center;padding:10px 14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-s);transition:border-color .2s var(--ease), background .2s var(--ease);}
 .footer-badge:hover{border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.09);}
 .footer-badge svg{height:30px;width:auto;}
+.footer-badge img{height:34px;width:auto;border-radius:2px;}
 
 /* ---------- Sticky mobile CTA ---------- */
 .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:90;background:var(--white);border-top:1px solid var(--line-soft);padding:12px 16px;box-shadow:0 -8px 24px rgba(0,0,0,.08);display:none;transform:translateY(100%);transition:transform .4s var(--ease);}
@@ -836,7 +837,7 @@ h2.section-title{
   "@type": "HomeAndConstructionBusiness",
   "name": "Poll Massivhaus",
   "url": "https://massivhaus.poll-gruppe.com/",
-  "image": "https://massivhaus.poll-gruppe.com/assets/img/hero-poll-new.jpg",
+  "image": "https://massivhaus.poll-gruppe.com/assets/img/hero-haus-start.jpg",
   "logo": "https://massivhaus.poll-gruppe.com/assets/img/logo.png",
   "description": "Poll Massivhaus baut individuell geplante Einfamilienhäuser, Doppelhäuser und Häuser mit Einliegerwohnung – transparent, persönlich begleitet, in Massivbauweise.",
   "telephone": "+49 2695 88 23 900",
@@ -990,7 +991,7 @@ h2.section-title{
 <main id="top">
 <section class="hero hero-anim" id="heroSection">
   <div class="hero-media" id="heroMedia">
-    <img src="assets/img/hero-poll-new.jpg" alt="Modern gebautes Poll-Massivhaus in der Abenddämmerung">
+    <img src="assets/img/hero-haus-start.jpg" alt="Modern gebautes Poll-Massivhaus in der Abenddämmerung">
   </div>
   <div class="hero-inner container">
     <p class="hero-kicker-main">Ihr regionaler Partner für Massivhausbau</p>
@@ -1282,10 +1283,18 @@ h2.section-title{
             <div class="example-plan-panel" data-plan-panel="eli-amsterdam"><img loading="lazy" decoding="async" src="assets/img/haustypen/einliegerwohnung-grundriss.jpg" alt="Grundriss Erdgeschoss, Ausführung Amsterdam"></div>
           </div>
         </div>
-        <div class="example-card text-only">
-          <h4>Ausführung „Utrecht"</h4>
-          <div class="example-facts"><span>8,5 × 11,5 m</span><span>253,5 m²</span><span>38° Satteldach</span></div>
-          <p>Beispiele und Grundriss zeigen wir Ihnen gerne im persönlichen Gespräch.</p>
+        <div class="example-card">
+          <div class="example-media"><span class="badge">Beispielhaus · Utrecht</span><img loading="lazy" decoding="async" src="assets/img/haustypen/efh-utrecht-strasse.jpg" alt="Einfamilienhaus, Ausführung Utrecht"></div>
+          <div class="example-body">
+            <div class="example-facts icon-facts">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="8" rx="1"/><path d="M7 8v3M11 8v3M15 8v3M19 8v3"/></svg>8,5 × 11,5 m Grundmaß</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h14V10"/></svg>253,5 m² Wohnfläche</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 12 4l9 8"/><path d="M6 10v10M18 10v10"/></svg>38° Satteldach</span>
+            </div>
+            <button class="example-plan-toggle block" data-plan="efh-utrecht" aria-expanded="false">Grundriss entdecken<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <p class="example-plan-caption">Beispielgrundriss</p>
+            <div class="example-plan-panel" data-plan-panel="efh-utrecht"><img loading="lazy" decoding="async" src="assets/img/haustypen/efh-utrecht-grundriss.jpg" alt="Grundriss Erdgeschoss, Ausführung Utrecht"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -1312,10 +1321,18 @@ h2.section-title{
             <div class="example-plan-panel" data-plan-panel="dh-antwerpen"><img loading="lazy" decoding="async" src="assets/img/haustypen/doppelhaus-grundriss.jpg" alt="Grundriss Erdgeschoss, Ausführung Antwerpen"></div>
           </div>
         </div>
-        <div class="example-card text-only">
-          <h4>Ausführung „Brüssel"</h4>
-          <div class="example-facts"><span>14,0 × 11,6 m</span><span>124,9 m²</span><span>Walmdach</span></div>
-          <p>Beispiele und Grundriss zeigen wir Ihnen gerne im persönlichen Gespräch.</p>
+        <div class="example-card">
+          <div class="example-media"><span class="badge">Beispielhaus · Brüssel</span><img loading="lazy" decoding="async" src="assets/img/haustypen/dh-bruessel-strasse.jpg" alt="Doppelhaus, Ausführung Brüssel"></div>
+          <div class="example-body">
+            <div class="example-facts icon-facts">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="8" rx="1"/><path d="M7 8v3M11 8v3M15 8v3M19 8v3"/></svg>14,0 × 11,6 m Grundmaß</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h14V10"/></svg>124,9 m² Wohnfläche</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 12 4l9 8"/><path d="M6 10v10M18 10v10"/></svg>Walmdach</span>
+            </div>
+            <button class="example-plan-toggle block" data-plan="dh-bruessel" aria-expanded="false">Grundriss entdecken<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <p class="example-plan-caption">Beispielgrundriss</p>
+            <div class="example-plan-panel" data-plan-panel="dh-bruessel"><img loading="lazy" decoding="async" src="assets/img/haustypen/dh-bruessel-grundriss.jpg" alt="Grundriss Erdgeschoss, Ausführung Brüssel"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -1342,10 +1359,18 @@ h2.section-title{
             <div class="example-plan-panel" data-plan-panel="bg-sevilla"><img loading="lazy" decoding="async" src="assets/img/haustypen/bungalow-grundriss.jpg" alt="Grundriss, Ausführung Sevilla"></div>
           </div>
         </div>
-        <div class="example-card text-only">
-          <h4>Ausführung „Madrid"</h4>
-          <div class="example-facts"><span>10,9 × 16,0 m</span><span>139,3 m²</span><span>Walmdach</span></div>
-          <p>Beispiele und Grundriss zeigen wir Ihnen gerne im persönlichen Gespräch.</p>
+        <div class="example-card">
+          <div class="example-media"><span class="badge">Beispielhaus · Madrid</span><img loading="lazy" decoding="async" src="assets/img/haustypen/bg-madrid-strasse.jpg" alt="Bungalow, Ausführung Madrid"></div>
+          <div class="example-body">
+            <div class="example-facts icon-facts">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="8" rx="1"/><path d="M7 8v3M11 8v3M15 8v3M19 8v3"/></svg>10,9 × 16,0 m Grundmaß</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h14V10"/></svg>139,3 m² Wohnfläche</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 12 4l9 8"/><path d="M6 10v10M18 10v10"/></svg>Walmdach</span>
+            </div>
+            <button class="example-plan-toggle block" data-plan="bg-madrid" aria-expanded="false">Grundriss entdecken<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <p class="example-plan-caption">Beispielgrundriss</p>
+            <div class="example-plan-panel" data-plan-panel="bg-madrid"><img loading="lazy" decoding="async" src="assets/img/haustypen/bg-madrid-grundriss.jpg" alt="Grundriss Erdgeschoss, Ausführung Madrid"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -1372,10 +1397,18 @@ h2.section-title{
             <div class="example-plan-panel" data-plan-panel="sv-nizza"><img loading="lazy" decoding="async" src="assets/img/haustypen/stadtvilla-grundriss.jpg" alt="Grundriss Erdgeschoss, Ausführung Nizza"></div>
           </div>
         </div>
-        <div class="example-card text-only">
-          <h4>Ausführung „Bordeaux"</h4>
-          <div class="example-facts"><span>10,0 × 10,0 m</span><span>151,4 m²</span><span>Walmdach</span></div>
-          <p>Beispiele und Grundriss zeigen wir Ihnen gerne im persönlichen Gespräch.</p>
+        <div class="example-card">
+          <div class="example-media"><span class="badge">Beispielhaus · Bordeaux</span><img loading="lazy" decoding="async" src="assets/img/haustypen/sv-bordeaux-strasse.jpg" alt="Stadtvilla, Ausführung Bordeaux"></div>
+          <div class="example-body">
+            <div class="example-facts icon-facts">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="8" rx="1"/><path d="M7 8v3M11 8v3M15 8v3M19 8v3"/></svg>10,0 × 10,0 m Grundmaß</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h14V10"/></svg>151,4 m² Wohnfläche</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 12 4l9 8"/><path d="M6 10v10M18 10v10"/></svg>Walmdach</span>
+            </div>
+            <button class="example-plan-toggle block" data-plan="sv-bordeaux" aria-expanded="false">Grundriss entdecken<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <p class="example-plan-caption">Beispielgrundriss</p>
+            <div class="example-plan-panel" data-plan-panel="sv-bordeaux"><img loading="lazy" decoding="async" src="assets/img/haustypen/sv-bordeaux-grundriss.jpg" alt="Grundriss Erdgeschoss, Ausführung Bordeaux"></div>
+          </div>
         </div>
       </div>
       <button class="type-reveal-more" data-reveal="stadtvilla">Weitere Beispielhäuser dieser Kategorie anzeigen</button>
@@ -1399,10 +1432,18 @@ h2.section-title{
         <p>Separate Wohneinheiten schaffen Raum für mehrere Generationen, Familien oder unterschiedliche Nutzungskonzepte.</p>
       </div>
       <div class="example-grid">
-        <div class="example-card text-only">
-          <h4>Ausführung „Den Haag"</h4>
-          <div class="example-facts"><span>19,5 × 15,0 m</span><span>486,0 m²</span><span>38° Satteldach</span></div>
-          <p>Beispiele und Grundriss zeigen wir Ihnen gerne im persönlichen Gespräch.</p>
+        <div class="example-card">
+          <div class="example-media"><span class="badge">Beispielhaus · Den Haag</span><img loading="lazy" decoding="async" src="assets/img/haustypen/mfh-denhaag-strasse.jpg" alt="Mehrfamilienhaus, Ausführung Den Haag"></div>
+          <div class="example-body">
+            <div class="example-facts icon-facts">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="8" rx="1"/><path d="M7 8v3M11 8v3M15 8v3M19 8v3"/></svg>19,5 × 15,0 m Grundmaß</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h14V10"/></svg>486,0 m² Wohnfläche</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 12 4l9 8"/><path d="M6 10v10M18 10v10"/></svg>38° Satteldach</span>
+            </div>
+            <button class="example-plan-toggle block" data-plan="mfh-denhaag" aria-expanded="false">Grundriss entdecken<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <p class="example-plan-caption">Beispielgrundriss</p>
+            <div class="example-plan-panel" data-plan-panel="mfh-denhaag"><img loading="lazy" decoding="async" src="assets/img/haustypen/mfh-denhaag-grundriss.jpg" alt="Grundriss Erdgeschoss, Ausführung Den Haag"></div>
+          </div>
         </div>
         <div class="example-card text-only">
           <h4>Ausführung „Eindhoven"</h4>
@@ -1431,24 +1472,48 @@ h2.section-title{
         <p>Besondere Architektur für besondere Wünsche – mit viel Freiheit bei Raumaufteilung, Gestaltung und Ausdruck.</p>
       </div>
       <div class="example-grid">
-        <div class="example-card text-only">
-          <h4>Ausführung „Mailand"</h4>
-          <div class="example-facts"><span>15,0 × 12,0 m</span><span>214,0 m²</span><span>Flachdach</span></div>
-          <p>Beispiele und Grundriss zeigen wir Ihnen gerne im persönlichen Gespräch.</p>
+        <div class="example-card">
+          <div class="example-media"><span class="badge">Beispielhaus · Mailand</span><img loading="lazy" decoding="async" src="assets/img/haustypen/efh-mailand-strasse.jpg" alt="Architektenhaus, Ausführung Mailand"></div>
+          <div class="example-body">
+            <div class="example-facts icon-facts">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="8" rx="1"/><path d="M7 8v3M11 8v3M15 8v3M19 8v3"/></svg>15,0 × 12,0 m Grundmaß</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h14V10"/></svg>214,0 m² Wohnfläche</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 12 4l9 8"/><path d="M6 10v10M18 10v10"/></svg>Flachdach</span>
+            </div>
+            <button class="example-plan-toggle block" data-plan="arch-mailand" aria-expanded="false">Grundriss entdecken<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <p class="example-plan-caption">Beispielgrundriss</p>
+            <div class="example-plan-panel" data-plan-panel="arch-mailand"><img loading="lazy" decoding="async" src="assets/img/haustypen/efh-mailand-grundriss.jpg" alt="Grundriss Erdgeschoss, Ausführung Mailand"></div>
+          </div>
         </div>
-        <div class="example-card text-only">
-          <h4>Ausführung „Neapel"</h4>
-          <div class="example-facts"><span>12,8 × 12,8 m</span><span>185,6 m²</span><span>Staffelgeschoss</span></div>
-          <p>Beispiele und Grundriss zeigen wir Ihnen gerne im persönlichen Gespräch.</p>
+        <div class="example-card">
+          <div class="example-media"><span class="badge">Beispielhaus · Neapel</span><img loading="lazy" decoding="async" src="assets/img/haustypen/arch-neapel-garten.jpg" alt="Architektenhaus, Ausführung Neapel"></div>
+          <div class="example-body">
+            <div class="example-facts icon-facts">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="8" rx="1"/><path d="M7 8v3M11 8v3M15 8v3M19 8v3"/></svg>12,8 × 12,8 m Grundmaß</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h14V10"/></svg>185,6 m² Wohnfläche</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 12 4l9 8"/><path d="M6 10v10M18 10v10"/></svg>Staffelgeschoss</span>
+            </div>
+            <button class="example-plan-toggle block" data-plan="arch-neapel" aria-expanded="false">Grundriss entdecken<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <p class="example-plan-caption">Beispielgrundriss</p>
+            <div class="example-plan-panel" data-plan-panel="arch-neapel"><img loading="lazy" decoding="async" src="assets/img/haustypen/arch-neapel-grundriss.jpg" alt="Grundriss Erdgeschoss, Ausführung Neapel"></div>
+          </div>
         </div>
       </div>
       <button class="type-reveal-more" data-reveal="architekt">Weitere Beispielhäuser dieser Kategorie anzeigen</button>
       <div class="type-extra-examples" data-extra="architekt">
         <div class="example-grid">
-          <div class="example-card text-only">
-            <h4>Ausführung „Rom"</h4>
-            <div class="example-facts"><span>15,0 × 9,5 m</span><span>258,1 m²</span><span>Walmdach</span></div>
-            <p>Beispiele und Grundriss zeigen wir Ihnen gerne im persönlichen Gespräch.</p>
+          <div class="example-card">
+            <div class="example-media"><span class="badge">Beispielhaus · Rom</span><img loading="lazy" decoding="async" src="assets/img/haustypen/arch-rom-strasse.jpg" alt="Architektenhaus, Ausführung Rom"></div>
+            <div class="example-body">
+              <div class="example-facts icon-facts">
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="8" rx="1"/><path d="M7 8v3M11 8v3M15 8v3M19 8v3"/></svg>15,0 × 9,5 m Grundmaß</span>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h14V10"/></svg>258,1 m² Wohnfläche</span>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 12 4l9 8"/><path d="M6 10v10M18 10v10"/></svg>Walmdach</span>
+              </div>
+              <button class="example-plan-toggle block" data-plan="arch-rom" aria-expanded="false">Grundriss entdecken<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+              <p class="example-plan-caption">Beispielgrundriss</p>
+              <div class="example-plan-panel" data-plan-panel="arch-rom"><img loading="lazy" decoding="async" src="assets/img/haustypen/arch-rom-grundriss.jpg" alt="Grundriss Erdgeschoss, Ausführung Rom"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -1746,24 +1811,22 @@ h2.section-title{
       <div class="marquee-viewport">
         <div class="marquee-track">
           <div class="marquee-group">
-            <div class="marquee-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76Z"/></svg>Elektro</div>
-            <div class="marquee-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11Z"/></svg>Sanitär &amp; Heizung</div>
-            <div class="marquee-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 12 4l9 8"/><path d="M6 10v10M18 10v10"/></svg>Dach &amp; Zimmerei</div>
-            <div class="marquee-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Fliesen &amp; Boden</div>
-            <div class="marquee-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-8 6v12h5v-7h6v7h5V9l-8-6Z"/></svg>Maler &amp; Trockenbau</div>
-            <div class="marquee-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg>Garten- &amp; Landschaftsbau</div>
-            <div class="marquee-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Fenster &amp; Türen</div>
-            <div class="marquee-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="M9 22V12h6v10"/></svg>Beton &amp; Rohbau</div>
+            <div class="marquee-logo"><img loading="lazy" decoding="async" src="assets/img/partner-bje.jpg" alt="BJE"></div>
+            <div class="marquee-logo"><img loading="lazy" decoding="async" src="assets/img/partner-braas.jpg" alt="Braas"></div>
+            <div class="marquee-logo"><img loading="lazy" decoding="async" src="assets/img/partner-unika.jpg" alt="UNIKA"></div>
+            <div class="marquee-logo"><img loading="lazy" decoding="async" src="assets/img/partner-vb.jpg" alt="VB"></div>
+            <div class="marquee-logo"><img loading="lazy" decoding="async" src="assets/img/partner-zapf.png" alt="Zapf"></div>
+            <div class="marquee-logo"><img loading="lazy" decoding="async" src="assets/img/partner-elements.png" alt="elements"></div>
+            <div class="marquee-logo"><img loading="lazy" decoding="async" src="assets/img/partner-vigour.jpg" alt="Vigour"></div>
           </div>
           <div class="marquee-group" aria-hidden="true">
-            <div class="marquee-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76Z"/></svg>Elektro</div>
-            <div class="marquee-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11Z"/></svg>Sanitär &amp; Heizung</div>
-            <div class="marquee-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 12 4l9 8"/><path d="M6 10v10M18 10v10"/></svg>Dach &amp; Zimmerei</div>
-            <div class="marquee-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Fliesen &amp; Boden</div>
-            <div class="marquee-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-8 6v12h5v-7h6v7h5V9l-8-6Z"/></svg>Maler &amp; Trockenbau</div>
-            <div class="marquee-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg>Garten- &amp; Landschaftsbau</div>
-            <div class="marquee-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Fenster &amp; Türen</div>
-            <div class="marquee-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="M9 22V12h6v10"/></svg>Beton &amp; Rohbau</div>
+            <div class="marquee-logo"><img loading="lazy" decoding="async" src="assets/img/partner-bje.jpg" alt="BJE"></div>
+            <div class="marquee-logo"><img loading="lazy" decoding="async" src="assets/img/partner-braas.jpg" alt="Braas"></div>
+            <div class="marquee-logo"><img loading="lazy" decoding="async" src="assets/img/partner-unika.jpg" alt="UNIKA"></div>
+            <div class="marquee-logo"><img loading="lazy" decoding="async" src="assets/img/partner-vb.jpg" alt="VB"></div>
+            <div class="marquee-logo"><img loading="lazy" decoding="async" src="assets/img/partner-zapf.png" alt="Zapf"></div>
+            <div class="marquee-logo"><img loading="lazy" decoding="async" src="assets/img/partner-elements.png" alt="elements"></div>
+            <div class="marquee-logo"><img loading="lazy" decoding="async" src="assets/img/partner-vigour.jpg" alt="Vigour"></div>
           </div>
         </div>
       </div>
@@ -1926,7 +1989,7 @@ h2.section-title{
         <p>Massivhäuser für Familien in der Eifel &amp; Ahrtal, Koblenz &amp; Rheinland-Pfalz, Köln/Bonn &amp; Rhein-Sieg, Düsseldorf &amp; Umgebung sowie im Rhein-Main-Gebiet.</p>
         <div class="footer-badges">
           <a href="https://www.meisterhaftbauen.de/" target="_blank" rel="noopener" class="footer-badge" aria-label="Meisterhaft – Deutsche Bauwirtschaft">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6L12 2z"/></svg>
+            <img loading="lazy" decoding="async" src="assets/img/badge-km-4-sterne.jpg" alt="Meisterhaft – Deutsche Bauwirtschaft, 4 Sterne">
           </a>
           <a href="https://www.pq-verein.de/" target="_blank" rel="noopener" class="footer-badge" aria-label="PQ-VOB Präqualifikation">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9"/></svg>
