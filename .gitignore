@@ -1,2 +1,10 @@
 .DS_Store
 Thumbs.db
+
+# Raw, unoptimized source material dropped in for processing - only the
+# resized/compressed derivatives (placed elsewhere) belong in the repo.
+assets/img/haustypen_ergänzung/
+assets/img/logos_partner/
+assets/img/Haus_Start.png
+assets/img/KM Logo 4 Sterne.jpg
+assets/img/PQ LOGO.pdf
