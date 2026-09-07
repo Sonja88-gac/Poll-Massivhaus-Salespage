@@ -256,9 +256,13 @@ h2.section-title{
 .example-plan-toggle svg{width:13px;height:13px;transition:transform .3s var(--ease);}
 .example-plan-toggle[aria-expanded="true"] svg{transform:rotate(180deg);}
 .example-plan-panel{max-height:0;overflow:hidden;transition:max-height .5s var(--ease);}
-.example-plan-panel.is-open{max-height:600px;margin-top:16px;}
+.example-plan-panel.is-open{max-height:680px;margin-top:16px;}
 .example-plan-panel img{border-radius:var(--radius-m);border:1px solid var(--line-soft);}
 .example-plan-panel p{margin-top:10px;font-size:12.5px;color:var(--ink-45);line-height:1.5;}
+.plan-floor-tabs{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap;}
+.plan-floor-tab{padding:6px 14px;border-radius:100px;border:1.5px solid var(--line);background:var(--white);font-family:var(--font-sans);font-size:12.5px;font-weight:700;color:var(--ink-65);transition:all .2s var(--ease);}
+.plan-floor-tab:hover{border-color:var(--ink);color:var(--ink);}
+.plan-floor-tab.is-active{background:var(--red);border-color:var(--red);color:var(--white);}
 
 .example-card.text-only{align-items:center;justify-content:center;text-align:center;padding:28px 24px;border-style:dashed;background:var(--stone-50);box-shadow:none;}
 .example-card.text-only h4{font-family:var(--font-serif);font-weight:700;font-size:16px;}
@@ -1293,7 +1297,14 @@ h2.section-title{
             </div>
             <button class="example-plan-toggle block" data-plan="efh-utrecht" aria-expanded="false">Grundriss entdecken<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
             <p class="example-plan-caption">Beispielgrundriss</p>
-            <div class="example-plan-panel" data-plan-panel="efh-utrecht"><img loading="lazy" decoding="async" src="assets/img/haustypen/efh-utrecht-grundriss.jpg" alt="Grundriss Erdgeschoss, Ausführung Utrecht"></div>
+            <div class="example-plan-panel" data-plan-panel="efh-utrecht">
+              <div class="plan-floor-tabs">
+                <button class="plan-floor-tab is-active" data-floor-src="assets/img/haustypen/efh-utrecht-grundriss.jpg" data-floor-alt="Grundriss Erdgeschoss, Ausführung Utrecht">EG</button>
+                <button class="plan-floor-tab" data-floor-src="assets/img/haustypen/efh-utrecht-grundriss-og1.jpg" data-floor-alt="Grundriss 1. Obergeschoss, Ausführung Utrecht">1. OG</button>
+                <button class="plan-floor-tab" data-floor-src="assets/img/haustypen/efh-utrecht-grundriss-og2.jpg" data-floor-alt="Grundriss 2. Obergeschoss, Ausführung Utrecht">2. OG</button>
+              </div>
+              <img loading="lazy" decoding="async" src="assets/img/haustypen/efh-utrecht-grundriss.jpg" alt="Grundriss Erdgeschoss, Ausführung Utrecht">
+            </div>
           </div>
         </div>
       </div>
@@ -1331,7 +1342,13 @@ h2.section-title{
             </div>
             <button class="example-plan-toggle block" data-plan="dh-bruessel" aria-expanded="false">Grundriss entdecken<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
             <p class="example-plan-caption">Beispielgrundriss</p>
-            <div class="example-plan-panel" data-plan-panel="dh-bruessel"><img loading="lazy" decoding="async" src="assets/img/haustypen/dh-bruessel-grundriss.jpg" alt="Grundriss Erdgeschoss, Ausführung Brüssel"></div>
+            <div class="example-plan-panel" data-plan-panel="dh-bruessel">
+              <div class="plan-floor-tabs">
+                <button class="plan-floor-tab is-active" data-floor-src="assets/img/haustypen/dh-bruessel-grundriss.jpg" data-floor-alt="Grundriss Erdgeschoss, Ausführung Brüssel">EG</button>
+                <button class="plan-floor-tab" data-floor-src="assets/img/haustypen/dh-bruessel-grundriss-og.jpg" data-floor-alt="Grundriss Obergeschoss, Ausführung Brüssel">OG</button>
+              </div>
+              <img loading="lazy" decoding="async" src="assets/img/haustypen/dh-bruessel-grundriss.jpg" alt="Grundriss Erdgeschoss, Ausführung Brüssel">
+            </div>
           </div>
         </div>
       </div>
@@ -1407,7 +1424,13 @@ h2.section-title{
             </div>
             <button class="example-plan-toggle block" data-plan="sv-bordeaux" aria-expanded="false">Grundriss entdecken<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
             <p class="example-plan-caption">Beispielgrundriss</p>
-            <div class="example-plan-panel" data-plan-panel="sv-bordeaux"><img loading="lazy" decoding="async" src="assets/img/haustypen/sv-bordeaux-grundriss.jpg" alt="Grundriss Erdgeschoss, Ausführung Bordeaux"></div>
+            <div class="example-plan-panel" data-plan-panel="sv-bordeaux">
+              <div class="plan-floor-tabs">
+                <button class="plan-floor-tab is-active" data-floor-src="assets/img/haustypen/sv-bordeaux-grundriss.jpg" data-floor-alt="Grundriss Erdgeschoss, Ausführung Bordeaux">EG</button>
+                <button class="plan-floor-tab" data-floor-src="assets/img/haustypen/sv-bordeaux-grundriss-og.jpg" data-floor-alt="Grundriss Obergeschoss, Ausführung Bordeaux">OG</button>
+              </div>
+              <img loading="lazy" decoding="async" src="assets/img/haustypen/sv-bordeaux-grundriss.jpg" alt="Grundriss Erdgeschoss, Ausführung Bordeaux">
+            </div>
           </div>
         </div>
       </div>
@@ -1442,7 +1465,14 @@ h2.section-title{
             </div>
             <button class="example-plan-toggle block" data-plan="mfh-denhaag" aria-expanded="false">Grundriss entdecken<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
             <p class="example-plan-caption">Beispielgrundriss</p>
-            <div class="example-plan-panel" data-plan-panel="mfh-denhaag"><img loading="lazy" decoding="async" src="assets/img/haustypen/mfh-denhaag-grundriss.jpg" alt="Grundriss Erdgeschoss, Ausführung Den Haag"></div>
+            <div class="example-plan-panel" data-plan-panel="mfh-denhaag">
+              <div class="plan-floor-tabs">
+                <button class="plan-floor-tab is-active" data-floor-src="assets/img/haustypen/mfh-denhaag-grundriss.jpg" data-floor-alt="Grundriss Erdgeschoss, Ausführung Den Haag">EG</button>
+                <button class="plan-floor-tab" data-floor-src="assets/img/haustypen/mfh-denhaag-grundriss-dg.jpg" data-floor-alt="Grundriss Dachgeschoss, Ausführung Den Haag">DG</button>
+                <button class="plan-floor-tab" data-floor-src="assets/img/haustypen/mfh-denhaag-grundriss-kg.jpg" data-floor-alt="Grundriss Kellergeschoss, Ausführung Den Haag">KG</button>
+              </div>
+              <img loading="lazy" decoding="async" src="assets/img/haustypen/mfh-denhaag-grundriss.jpg" alt="Grundriss Erdgeschoss, Ausführung Den Haag">
+            </div>
           </div>
         </div>
         <div class="example-card text-only">
@@ -1482,7 +1512,13 @@ h2.section-title{
             </div>
             <button class="example-plan-toggle block" data-plan="arch-mailand" aria-expanded="false">Grundriss entdecken<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
             <p class="example-plan-caption">Beispielgrundriss</p>
-            <div class="example-plan-panel" data-plan-panel="arch-mailand"><img loading="lazy" decoding="async" src="assets/img/haustypen/efh-mailand-grundriss.jpg" alt="Grundriss Erdgeschoss, Ausführung Mailand"></div>
+            <div class="example-plan-panel" data-plan-panel="arch-mailand">
+              <div class="plan-floor-tabs">
+                <button class="plan-floor-tab is-active" data-floor-src="assets/img/haustypen/efh-mailand-grundriss.jpg" data-floor-alt="Grundriss Erdgeschoss, Ausführung Mailand">EG</button>
+                <button class="plan-floor-tab" data-floor-src="assets/img/haustypen/efh-mailand-grundriss-og.jpg" data-floor-alt="Grundriss Obergeschoss, Ausführung Mailand">OG</button>
+              </div>
+              <img loading="lazy" decoding="async" src="assets/img/haustypen/efh-mailand-grundriss.jpg" alt="Grundriss Erdgeschoss, Ausführung Mailand">
+            </div>
           </div>
         </div>
         <div class="example-card">
@@ -1495,7 +1531,13 @@ h2.section-title{
             </div>
             <button class="example-plan-toggle block" data-plan="arch-neapel" aria-expanded="false">Grundriss entdecken<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
             <p class="example-plan-caption">Beispielgrundriss</p>
-            <div class="example-plan-panel" data-plan-panel="arch-neapel"><img loading="lazy" decoding="async" src="assets/img/haustypen/arch-neapel-grundriss.jpg" alt="Grundriss Erdgeschoss, Ausführung Neapel"></div>
+            <div class="example-plan-panel" data-plan-panel="arch-neapel">
+              <div class="plan-floor-tabs">
+                <button class="plan-floor-tab is-active" data-floor-src="assets/img/haustypen/arch-neapel-grundriss.jpg" data-floor-alt="Grundriss Erdgeschoss, Ausführung Neapel">EG</button>
+                <button class="plan-floor-tab" data-floor-src="assets/img/haustypen/arch-neapel-grundriss-og.jpg" data-floor-alt="Grundriss Obergeschoss, Ausführung Neapel">OG</button>
+              </div>
+              <img loading="lazy" decoding="async" src="assets/img/haustypen/arch-neapel-grundriss.jpg" alt="Grundriss Erdgeschoss, Ausführung Neapel">
+            </div>
           </div>
         </div>
       </div>
@@ -1512,7 +1554,13 @@ h2.section-title{
               </div>
               <button class="example-plan-toggle block" data-plan="arch-rom" aria-expanded="false">Grundriss entdecken<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
               <p class="example-plan-caption">Beispielgrundriss</p>
-              <div class="example-plan-panel" data-plan-panel="arch-rom"><img loading="lazy" decoding="async" src="assets/img/haustypen/arch-rom-grundriss.jpg" alt="Grundriss Erdgeschoss, Ausführung Rom"></div>
+              <div class="example-plan-panel" data-plan-panel="arch-rom">
+                <div class="plan-floor-tabs">
+                  <button class="plan-floor-tab is-active" data-floor-src="assets/img/haustypen/arch-rom-grundriss.jpg" data-floor-alt="Grundriss Erdgeschoss, Ausführung Rom">EG</button>
+                  <button class="plan-floor-tab" data-floor-src="assets/img/haustypen/arch-rom-grundriss-og.jpg" data-floor-alt="Grundriss Obergeschoss, Ausführung Rom">OG</button>
+                </div>
+                <img loading="lazy" decoding="async" src="assets/img/haustypen/arch-rom-grundriss.jpg" alt="Grundriss Erdgeschoss, Ausführung Rom">
+              </div>
             </div>
           </div>
         </div>
@@ -2287,6 +2335,17 @@ document.querySelectorAll('.example-plan-toggle').forEach(btn => {
     const isOpen = panel.classList.toggle('is-open');
     btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     btn.firstChild.textContent = isOpen ? 'Grundriss ausblenden ' : 'Grundriss ansehen ';
+  });
+});
+
+/* ---------- Grundriss-Etagenwahl (EG/OG/DG/KG) ---------- */
+document.querySelectorAll('.plan-floor-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const panel = tab.closest('.example-plan-panel');
+    const img = panel.querySelector('img');
+    img.src = tab.dataset.floorSrc;
+    img.alt = tab.dataset.floorAlt;
+    panel.querySelectorAll('.plan-floor-tab').forEach(t => t.classList.toggle('is-active', t === tab));
   });
 });
 
