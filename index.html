@@ -121,6 +121,13 @@ h2.section-title{
 .site-header.is-scrolled .main-nav a{color:var(--ink-80);}
 .main-nav a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1.5px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease);}
 .main-nav a:hover::after{transform:scaleX(1);}
+/* ---- TEST Kundenwunsch: Menuepunkte in Rot. Zum Zurueckdrehen einfach diesen
+   Block loeschen – die Regeln darueber sind unveraendert geblieben. ---- */
+.main-nav a{color:var(--red);}
+.site-header.is-scrolled .main-nav a{color:var(--red);}
+.main-nav a:hover{color:#fff;}
+.site-header.is-scrolled .main-nav a:hover{color:var(--red-dark);}
+/* ---- Ende Test ---- */
 .header-actions{display:flex;align-items:center;gap:18px;}
 .header-phone{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;color:#fff;transition:color .35s var(--ease);}
 .header-phone svg{width:16px;height:16px;flex:none;color:currentColor;}
