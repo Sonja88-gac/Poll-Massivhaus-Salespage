@@ -582,6 +582,9 @@ h2.section-title{
 .ref-dot{width:8px;height:8px;border-radius:50%;background:var(--line);border:none;padding:0;transition:all .25s var(--ease);}
 .ref-dot.is-active{background:var(--red);width:22px;border-radius:100px;}
 .proof-note.rating-note.center{margin:36px auto 0;flex-direction:column;text-align:center;align-items:center;max-width:fit-content;}
+/* In der zentrierten Variante braucht die Bewertungszahl etwas Luft zu den
+   Sternen – und gehoert mittig darunter, nicht linksbuendig. */
+.proof-note.rating-note.center .rating-badge{gap:9px;align-items:center;}
 @media (max-width:900px){.ref-gallery{grid-template-columns:1fr;height:auto;}.ref-gallery-main{aspect-ratio:4/3;}.ref-gallery-side{flex-direction:row;height:160px;}}
 @media (max-width:560px){.ref-gallery-side{flex-direction:column;height:auto;}.rgs-item{aspect-ratio:4/3;}.ref-thumb{flex-basis:76px;}}
 
