@@ -235,6 +235,11 @@ h2.section-title{
 @media (max-width:560px){
   .usp-list{grid-template-columns:1fr;}
 }
+/* Nur Mobil: die Erklaerung wird per JS in das (einspaltige, zentrierte)
+   .usp-layout einsortiert und muss dort die volle Breite behalten. */
+@media (max-width:1024px){
+  .usp-layout > .usp-detail{width:100%;}
+}
 .usp-copy{max-width:440px;}
 @media (max-width:1240px){.usp-copy{max-width:640px;text-align:center;}}
 /* ---------- Hausarten ---------- */
@@ -2225,6 +2230,23 @@ const uspDetail = document.getElementById('uspDetail');
 const uspDetailText = document.getElementById('uspDetailText');
 const uspToggleBtns = document.querySelectorAll('.usp-node-inner[data-usp]');
 let uspOpenKey = null;
+/* Auf Mobil gehoert die aufgeklappte Erklaerung direkt unter die Kacheln – also
+   VOR den Block "Was das fuer Sie bedeutet". Auf Desktop bleibt die Reihenfolge
+   (und damit das Layout) unveraendert, deshalb wird der Knoten nur unterhalb
+   von 1024px umgehaengt und darueber an seinen alten Platz zurueckgestellt. */
+const uspMq = window.matchMedia('(max-width:1024px)');
+const uspLayoutEl = document.querySelector('.usp-layout');
+const uspCopyEl = document.querySelector('.usp-copy');
+const uspDetailHome = uspDetail.parentElement;
+function placeUspDetail(){
+  if (uspMq.matches){
+    if (uspDetail.parentElement !== uspLayoutEl) uspLayoutEl.insertBefore(uspDetail, uspCopyEl);
+  } else if (uspDetail.parentElement !== uspDetailHome){
+    uspDetailHome.appendChild(uspDetail);
+  }
+}
+placeUspDetail();
+uspMq.addEventListener('change', placeUspDetail);
 function closeUspDetail(){
   uspOpenKey = null;
   uspDetail.classList.remove('is-open');
@@ -2241,6 +2263,23 @@ function openUspDetail(key, btn){
   setTimeout(() => {
     const rect = uspDetail.getBoundingClientRect();
     const margin = 32;
+    if (uspMq.matches){
+      /* Auf Mobil verdecken die fixierte Kopfleiste oben und die fixierte
+         CTA-Leiste unten je ~70px. Ohne diese Korrektur landet das Ende der
+         Erklaerung hinter der CTA-Leiste und wirkt abgeschnitten. Statt am
+         unteren Rand auszurichten, setzen wir den Anfang der Erklaerung direkt
+         unter die Kopfleiste – gelesen wird von oben nach unten. */
+      const header = document.getElementById('siteHeader');
+      const cta = document.getElementById('stickyCta');
+      const headerH = header ? header.getBoundingClientRect().height : 0;
+      const ctaH = (cta && getComputedStyle(cta).position === 'fixed') ? cta.getBoundingClientRect().height : 0;
+      const obenFrei = headerH + margin;
+      const untenFrei = window.innerHeight - ctaH - margin;
+      if (rect.top < obenFrei || rect.bottom > untenFrei){
+        window.scrollTo({top: Math.max(0, window.scrollY + rect.top - obenFrei), behavior:'smooth'});
+      }
+      return;
+    }
     if (rect.top < margin || rect.bottom > window.innerHeight - margin){
       const targetY = window.scrollY + rect.bottom - window.innerHeight + margin;
       window.scrollTo({top: Math.max(0, targetY), behavior:'smooth'});
@@ -2331,7 +2370,15 @@ const typeDetails = document.querySelectorAll('.type-detail');
 function openTypeDetail(key){
   typeOverview.style.display = 'none';
   typeDetails.forEach(d => d.classList.toggle('is-active', d.dataset.detail === key));
-  document.getElementById('hausarten').scrollIntoView({behavior:'smooth', block:'start'});
+  /* Nicht an den Anfang der Sektion springen – dort steht die allgemeine
+     Einleitung, die man gerade schon gelesen hat. Stattdessen an den Anfang
+     der geoeffneten Hausart, direkt oberhalb der Beispielhaeuser. */
+  const active = document.querySelector('.type-detail.is-active');
+  const target = active || document.getElementById('hausarten');
+  const header = document.getElementById('siteHeader');
+  const headerH = header ? header.getBoundingClientRect().height : 0;
+  const y = window.scrollY + target.getBoundingClientRect().top - headerH - 16;
+  window.scrollTo({top: Math.max(0, y), behavior:'smooth'});
 }
 function closeTypeDetail(){
   typeOverview.style.display = '';
