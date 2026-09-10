@@ -431,7 +431,9 @@ h2.section-title{
 /* ---------- Footer ---------- */
 .site-footer{background:#171512;color:rgba(255,255,255,.6);padding:64px 0 32px;}
 .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;}
-.footer-brand img{height:36px;margin-bottom:18px;}
+/* Nur das Marken-Logo direkt darunter – sonst erben auch die Badge-Bilder den
+   Abstand und die weisse Flaeche des PQ-Badges reicht unter das Logo hinaus. */
+.footer-brand > img{height:36px;margin-bottom:18px;}
 .footer-brand p{font-size:13.5px;line-height:1.6;max-width:32ch;color:rgba(255,255,255,.42);}
 .footer-col h5{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:16px;}
 .footer-col ul{display:flex;flex-direction:column;gap:11px;}
@@ -1026,7 +1028,7 @@ h2.section-title{
       <div class="stat"><div class="num">2014</div><div class="label">Gegründet – seitdem familiengeführt</div></div>
       <div class="stat"><div class="num">150+</div><div class="label">Massivhäuser real gebaut und übergeben</div></div>
       <div class="stat"><div class="num">25–30</div><div class="label">Häuser pro Jahr – jedes Projekt bleibt persönlich betreut</div></div>
-      <div class="stat"><div class="num">9–10 Monate</div><div class="label">Bauzeit ohne Keller, ab Übergabe an die Bauleitung</div></div>
+      <div class="stat"><div class="num">9–10</div><div class="label">Monate Bauzeit ohne Keller, ab Übergabe an die Bauleitung</div></div>
       <div class="stat"><div class="num">5 Jahre</div><div class="label">Gewährleistung ab Abnahme, inkl. Vertragserfüllungsbürgschaft</div></div>
     </div>
   </div>
