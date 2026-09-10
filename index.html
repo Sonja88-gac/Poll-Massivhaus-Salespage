@@ -110,6 +110,12 @@ h2.section-title{
 .brand .logo-pos{display:none;}
 .site-header.is-scrolled .brand .logo-neg{display:none;}
 .site-header.is-scrolled .brand .logo-pos{display:block;}
+/* Weicher Verlauf hinter dem transparenten Header: hebt Logo, Navigation und
+   Telefonnummer vom Hero-Foto ab, ohne eine sichtbare Leiste zu erzeugen. */
+.site-header::before{content:"";position:absolute;left:0;right:0;top:0;height:calc(100% + 48px);z-index:-1;pointer-events:none;
+  background:linear-gradient(to bottom, rgba(14,12,10,.62) 0%, rgba(14,12,10,.34) 55%, rgba(14,12,10,0) 100%);
+  transition:opacity .35s var(--ease);}
+.site-header.is-scrolled::before{opacity:0;}
 .main-nav{display:flex;align-items:center;gap:34px;}
 .main-nav a{font-size:15px;font-weight:700;color:#fff;position:relative;padding:4px 0;transition:color .35s var(--ease);}
 .site-header.is-scrolled .main-nav a{color:var(--ink-80);}
@@ -592,8 +598,9 @@ h2.section-title{
 /* ---------- Über Poll v7 (single continuous section: history -> Baugebiete -> Partnernetzwerk) ---------- */
 /* --- Meilenstein-Timeline (vertikal, animiert beim Scrollen) --- */
 .about-history{margin-top:60px;position:relative;}
-/* Zwei gleiche Hälften ohne Gap: die Trennlinie liegt damit exakt auf der Mittelachse */
-.about-history-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:start;}
+/* Linke Spalte nur so breit wie das Portrait – so entsteht zwischen Bild/Adressen und
+   den Fakten-Karten kein auffaelliger Leerraum mehr. */
+.about-history-grid{display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:48px;align-items:start;}
 .about-portrait{position:relative;max-width:360px;}
 .about-locations{margin-top:24px;display:grid;gap:16px;}
 .al-item{display:flex;gap:12px;align-items:flex-start;padding-top:16px;border-top:1px solid var(--charcoal-line);}
@@ -602,7 +609,7 @@ h2.section-title{
 .al-label{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.42);}
 .al-value{margin-top:4px;font-size:13.5px;line-height:1.5;color:rgba(255,255,255,.72);}
 /* ---------- Fakten-Karten (ersetzen den frueheren Zeitstrahl) ---------- */
-.ah-facts{padding-left:34px;display:grid;gap:14px;}
+.ah-facts{display:grid;gap:14px;}
 .ah-fact{display:flex;gap:16px;align-items:flex-start;padding:20px 22px;border-radius:var(--radius-l);
   background:rgba(255,255,255,.045);border:1px solid var(--charcoal-line);}
 .ah-fact-icon{flex:none;width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;
@@ -685,9 +692,6 @@ h2.section-title{
   .map-labels-inline{display:block;}
   .map-state-name{font-size:8.5px;}
 }
-@media (max-width:760px){
-  .ah-facts{padding-left:0;}
-}
 @media (prefers-reduced-motion:reduce){
   .map-lead{transition:none;stroke-dashoffset:0;}
   .map-pin{transition:none;opacity:1;transform:none;}
@@ -728,8 +732,11 @@ h2.section-title{
 .footer-badges{margin-top:20px;display:flex;gap:12px;}
 .footer-badge{display:flex;align-items:center;justify-content:center;padding:10px 14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-s);transition:border-color .2s var(--ease), background .2s var(--ease);}
 .footer-badge:hover{border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.09);}
-.footer-badge.on-light{background:rgba(255,255,255,.95);border-color:transparent;}
-.footer-badge.on-light:hover{background:#fff;}
+/* Kein Rahmen/Polster: die weisse Flaeche endet exakt an der Bildmarke – analog zum
+   Meisterhaft-Logo, das seinen weissen Hintergrund selbst mitbringt. Ganz ohne Weiss
+   wuerde der dunkelgraue "VOB"-Schriftzug auf dem dunklen Footer verschwinden. */
+.footer-badge.on-light{background:#fff;border-color:transparent;padding:0;border-radius:2px;}
+.footer-badge.on-light img{border-radius:2px;}
 .footer-badge.no-frame{background:none;border-color:transparent;padding:0;}
 .footer-badge.no-frame:hover{background:none;}
 .footer-badge svg{height:30px;width:auto;}
