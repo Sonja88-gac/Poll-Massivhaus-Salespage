@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Consent-Management: MUSS vor allen Mess-Tags stehen. Setzt Google
+     Consent Mode v2 auf "denied" und laedt den GTM-Container erst
+     nach ausdruecklicher Zustimmung. Siehe assets/js/consent.js -->
+<script src="assets/js/consent.js"></script>
 <title>Poll Massivhaus | Ihr Baupartner für individuell geplante Massivhäuser</title>
 <meta name="description" content="Poll Massivhaus baut individuell geplante Einfamilienhäuser, Doppelhäuser und Häuser mit Einliegerwohnung – transparent, persönlich begleitet, in Massivbauweise. Vereinbaren Sie ein unverbindliches Erstgespräch.">
 <meta name="robots" content="index, follow">
@@ -1072,6 +1077,7 @@ h2.section-title{
         <span class="hero-trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Festpreisgarantie</span>
         <span class="hero-trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Transparente Gesamtkosten</span>
         <span class="hero-trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Planbare Bauzeit</span>
+        <span class="hero-trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Schlüsselfertig</span>
       </div>
     </div>
   </div>
@@ -2103,7 +2109,7 @@ h2.section-title{
             <div class="field"><label for="fMessage">Was dürfen wir über Ihr Vorhaben wissen?</label><textarea id="fMessage" name="message" placeholder="z. B. gewünschte Hausart, Grundstück, besondere Wünsche …"></textarea></div>
             <div class="check-row">
               <input type="checkbox" id="fPrivacy" name="privacy" required>
-              <label for="fPrivacy">Ich habe die <a href="https://www.poll-gruppe.com/datenschutz" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Daten zur Kontaktaufnahme einverstanden.*</label>
+              <label for="fPrivacy">Ich habe die <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Daten zur Kontaktaufnahme einverstanden.*</label>
             </div>
             <span class="field-error" id="fPrivacyError"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Feld ist erforderlich</span>
             <button type="submit" class="btn btn-primary btn-lg form-submit">Unverbindliches Erstgespräch anfragen</button>
@@ -2157,7 +2163,7 @@ h2.section-title{
         <h5>Rechtliches</h5>
         <ul>
           <li><a href="https://www.poll-gruppe.com/impressum" target="_blank" rel="noopener">Impressum</a></li>
-          <li><a href="https://www.poll-gruppe.com/datenschutz" target="_blank" rel="noopener">Datenschutzerklärung</a></li>
+          <li><a href="datenschutz.html">Datenschutzerklärung</a></li>
         </ul>
       </div>
     </div>
