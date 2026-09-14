@@ -8,13 +8,18 @@
 <meta name="robots" content="noindex, nofollow">
 <link rel="canonical" href="https://massivhaus.poll-gruppe.com/danke.html">
 <link rel="icon" href="assets/img/favicon.png">
-<link rel="preload" href="assets/fonts/HelveticaNeueLTStd-Roman.otf" as="font" type="font/otf" crossorigin>
-<link rel="preload" href="assets/fonts/HelveticaNeueLTStd-Bold.otf" as="font" type="font/otf" crossorigin>
+<link rel="preload" href="assets/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-/* ---------- Hausschrift Poll: Helvetica Neue LT Std ---------- */
-@font-face{font-family:'Helvetica Neue LT Std';src:url('assets/fonts/HelveticaNeueLTStd-Roman.otf') format('opentype');font-weight:400;font-style:normal;font-display:swap;}
-@font-face{font-family:'Helvetica Neue LT Std';src:url('assets/fonts/HelveticaNeueLTStd-Medium.otf') format('opentype');font-weight:500;font-style:normal;font-display:swap;}
-@font-face{font-family:'Helvetica Neue LT Std';src:url('assets/fonts/HelveticaNeueLTStd-Bold.otf') format('opentype');font-weight:700;font-style:normal;font-display:swap;}
+/* ---------- Schrift: Inter (SIL OFL, selbst gehostet) ----------
+   Kostenfreie Alternative zur Hausschrift Helvetica Neue, die vom Kunden nicht
+   web-lizenziert werden soll. Inter ist eine Neo-Grotesk in derselben Tradition
+   und stand vor der Helvetica-Umstellung bereits auf dieser Seite.
+   Selbst gehostet statt ueber Google Fonts - so verlaesst keine Besucher-IP
+   die Seite (DSGVO, LG Muenchen I, 20.01.2022 - 3 O 17493/20). */
+@font-face{font-family:'Inter';src:url('assets/fonts/Inter-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'Inter';src:url('assets/fonts/Inter-Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap;}
+@font-face{font-family:'Inter';src:url('assets/fonts/Inter-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap;}
 :root{
   --red:#D6001C; --red-dark:#A8001A; --red-light:#F6DCDF;
   --ink:#1C1A17; --ink-80:rgba(28,26,23,.82); --ink-65:rgba(28,26,23,.66); --ink-45:rgba(28,26,23,.46);
@@ -23,8 +28,8 @@
   --shadow-sm:0 2px 10px rgba(28,26,23,.06); --shadow-md:0 12px 34px -10px rgba(28,26,23,.22); --shadow-lg:0 30px 70px -24px rgba(28,26,23,.35);
   --radius-s:3px; --radius-m:6px; --radius-l:10px;
   --container-narrow:640px; --container-wide:1040px;
-  --font-display:'Helvetica Neue LT Std','Helvetica Neue',Helvetica,Arial,sans-serif;
-  --font-body:'Helvetica Neue LT Std','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --font-display:'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --font-body:'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;
   --ease:cubic-bezier(.16,.8,.24,1);
 }
 *,*::before,*::after{box-sizing:border-box;}
