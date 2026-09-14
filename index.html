@@ -544,7 +544,13 @@ h2.section-title{
 .type-more-grid{max-height:0;overflow:hidden;transition:max-height .55s var(--ease);}
 .type-more-grid.is-open{max-height:900px;margin-top:18px;}
 .type-more-grid-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
-.type-more-card{display:block;width:100%;background:var(--white);border:1px solid var(--line-soft);border-radius:var(--radius-m);overflow:hidden;text-align:left;transition:transform .3s var(--ease), box-shadow .3s var(--ease);}
+/* display:flex + flex-direction:column statt block: Die Kacheln sind <button>.
+   Safari zentriert den Inhalt eines Buttons, wenn er niedriger ist als der Button
+   selbst - und im Raster werden alle vier auf die Hoehe der hoechsten gezogen.
+   Bei den Kacheln mit kuerzerem Text (Bungalow, Architektenhaus) stand dadurch
+   oben und unten helle Kartenflaeche. Als Spalten-Flexbox fuellt der Inhalt die
+   Karte, .tmc-body nimmt die Resthoehe auf - da bleibt nichts zu zentrieren. */
+.type-more-card{display:flex;flex-direction:column;align-items:stretch;width:100%;background:var(--white);border:1px solid var(--line-soft);border-radius:var(--radius-m);overflow:hidden;text-align:left;transition:transform .3s var(--ease), box-shadow .3s var(--ease);}
 .type-more-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}
 /* 16:9 statt 4:3 und padding-top statt aspect-ratio: Die Visualisierungen sind
    rund 1,9:1 breit. Eine 4:3-Kachel schnitt links und rechts je ~15% weg, bei den
@@ -556,7 +562,7 @@ h2.section-title{
    inset nicht: das Bild fiele dann aus der Kachel und man saehe nur den hellen
    Hintergrund von .tmc-media. */
 .type-more-card .tmc-media img{position:absolute;top:0;right:0;bottom:0;left:0;display:block;width:100%;height:100%;object-fit:cover;object-position:center;}
-.type-more-card .tmc-body{padding:16px 16px 18px;}
+.type-more-card .tmc-body{flex:1;padding:16px 16px 18px;}
 .type-more-card h5{font-family:var(--font-display);font-weight:700;font-size:15px;}
 .type-more-card p{font-size:12px;color:var(--ink-45);margin-top:6px;line-height:1.5;}
 .type-more-card .tmc-link{margin-top:10px;font-weight:700;font-size:12px;color:var(--red);}
