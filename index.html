@@ -109,8 +109,9 @@ h2.section-title{
 .site-header .container{display:flex;align-items:center;justify-content:space-between;gap:24px;}
 .site-header.is-scrolled{padding:12px 0;background:rgba(253,252,250,.92);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:var(--shadow-sm);border-color:var(--line-soft);}
 .brand{display:flex;align-items:center;gap:10px;}
-.brand img{height:52px;width:auto;transition:height .35s var(--ease);display:block;}
-.site-header.is-scrolled .brand img{height:38px;}
+/* Logohoehe in beiden Header-Zustaenden gleich: vorher 52px oben und 38px nach
+   dem Scrollen - der Sprung fiel auf Desktop auf. Jetzt durchgehend 38px. */
+.brand img{height:38px;width:auto;display:block;}
 /* Ueber dem dunklen Hero das Negativ-Logo, im hellen Scroll-Zustand das Positiv-Logo */
 .brand .logo-pos{display:none;}
 .site-header.is-scrolled .brand .logo-neg{display:none;}
