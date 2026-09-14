@@ -485,7 +485,10 @@ h2.section-title{
 .usp-node-inner[aria-expanded="true"] .usp-plus{background:var(--red);color:#fff;transform:rotate(45deg);}
 .usp-node-inner[aria-expanded="true"]{border-color:var(--red);box-shadow:0 16px 34px -12px rgba(214,0,28,.35);}
 .usp-detail{max-height:0;overflow:hidden;transition:max-height .5s var(--ease), opacity .4s var(--ease), margin .5s var(--ease);opacity:0;margin-top:0;}
-.usp-detail.is-open{max-height:220px;opacity:1;margin-top:28px;}
+/* Reichlich Reserve: begrenzt wird nur, damit der Auf-/Zuklapp-Effekt animierbar
+   bleibt. Zu knapp bemessen schneidet die Regel laengere Erklaerungen auf
+   schmalen Displays ab - bei 320px braucht der laengste Text rund 300px. */
+.usp-detail.is-open{max-height:460px;opacity:1;margin-top:28px;}
 .usp-detail-inner{background:var(--stone-50);border:1px solid var(--line-soft);border-left:2px solid var(--red);border-radius:0 var(--radius-m) var(--radius-m) 0;padding:20px 50px 20px 24px;position:relative;max-width:760px;margin:0 auto;}
 .usp-detail-text{font-size:14.5px;line-height:1.6;color:var(--ink-80);}
 .usp-detail-close{position:absolute;top:16px;right:16px;width:26px;height:26px;border-radius:50%;border:1px solid var(--line);background:var(--white);display:flex;align-items:center;justify-content:center;color:var(--ink-45);}
@@ -2247,7 +2250,7 @@ const USP_DETAILS = {
   allinone: 'Planung, Genehmigung, Massivbau und Gebäudetechnik laufen bei uns koordiniert zusammen. Sie sprechen mit einem Baupartner – nicht mit vielen einzelnen Gewerken.',
   massiv: 'Die Außenwände entstehen aus 36,5 cm starken Porenbetonsteinen – für Stabilität, Langlebigkeit und ein Zuhause, das auch in Jahrzehnten noch trägt.',
   regional: 'Langjährige Partnerschaften mit Handwerksbetrieben aus Ihrem Baugebiet sorgen für eingespielte Abläufe, kurze Wege und verlässliche Qualität.',
-  bezugsfertig: 'Schlüsselfertig heißt: Bodenbeläge sowie Maler- und Tapezierarbeiten bleiben bei Ihnen. Auf Wunsch übernehmen wir auch diese Gewerke gegen Aufpreis – dann ziehen Sie wirklich bezugsfertig ein.',
+  bezugsfertig: 'Böden, Farbe und Tapete bleiben bei einem schlüsselfertigen Haus in Ihrer Hand – Sie entscheiden, wie viel Sie selbst gestalten möchten. Wenn Sie lieber alles aus einer Hand haben, übernehmen wir auch diese Gewerke gegen Aufpreis und Sie ziehen wirklich bezugsfertig ein.',
   technik: 'Fußbodenheizung, eine Luft-Wasser-Wärmepumpe und ein im Festpreis enthaltener Blower-Door-Test gehören zur Standardausstattung – abgestimmt auf effizientes und komfortables Wohnen.',
   festpreis: 'Der vereinbarte Festpreis wird über eine Vertragserfüllungsbürgschaft abgesichert. Zusätzlich erhalten Sie 5 Jahre Gewährleistung ab Abnahme.'
 };
