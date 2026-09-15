@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Consent-Management: MUSS vor allen Mess-Tags stehen. Setzt Google
+     Consent Mode v2 auf "denied" und laedt den GTM-Container erst
+     nach ausdruecklicher Zustimmung. Siehe assets/js/consent.js -->
+<script src="assets/js/consent.js"></script>
+<title>Datenschutzerklärung | Poll Massivhaus</title>
+<meta name="description" content="Informationen nach Art. 13 DSGVO zur Verarbeitung personenbezogener Daten auf massivhaus.poll-gruppe.com.">
+<link rel="canonical" href="https://massivhaus.poll-gruppe.com/datenschutz.html">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preload" href="assets/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* ---------- Schrift: Inter (SIL OFL, selbst gehostet) ----------
+   Selbst gehostet statt ueber Google Fonts - so verlaesst keine Besucher-IP
+   die Seite (DSGVO, LG Muenchen I, 20.01.2022 - 3 O 17493/20). */
+@font-face{font-family:'Inter';src:url('assets/fonts/Inter-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'Inter';src:url('assets/fonts/Inter-Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap;}
+@font-face{font-family:'Inter';src:url('assets/fonts/Inter-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap;}
+:root{
+  --red:#D6001C; --red-dark:#A8001A; --red-light:#F6DCDF;
+  --ink:#1C1A17; --ink-80:rgba(28,26,23,.82); --ink-65:rgba(28,26,23,.66); --ink-45:rgba(28,26,23,.46);
+  --stone-25:#FDFCFA; --stone-50:#FAF7F1; --stone-100:#F3EDE1;
+  --line:#E2D9C6; --line-soft:#EEE7D8; --white:#FFFFFF;
+  --shadow-sm:0 2px 10px rgba(28,26,23,.06);
+  --radius-s:3px; --radius-m:6px; --radius-l:10px;
+  --font-display:'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --font-body:'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --ease:cubic-bezier(.16,.8,.24,1);
+}
+*,*::before,*::after{box-sizing:border-box;}
+body{margin:0;font-family:var(--font-body);color:var(--ink);background:var(--stone-25);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{max-width:100%;display:block;}
+a{color:inherit;}
+h1,h2,h3,h4,p{margin:0;}
+.container{max-width:760px;margin:0 auto;padding:0 24px;}
+
+.site-header{padding:26px 0;text-align:center;border-bottom:1px solid var(--line-soft);}
+.site-header img{height:34px;margin:0 auto;}
+
+main{padding:56px 0 80px;}
+
+.eyebrow{font-weight:700;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);display:inline-flex;align-items:center;gap:10px;}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--red);display:inline-block;flex:none;}
+
+.doc-head h1{font-family:var(--font-display);font-weight:700;font-size:clamp(28px,5vw,40px);line-height:1.15;letter-spacing:-.015em;margin-top:16px;}
+.doc-head .lead{margin-top:18px;font-size:16.5px;line-height:1.65;color:var(--ink-65);}
+.doc-meta{margin-top:22px;font-size:13px;color:var(--ink-45);}
+
+/* ---------- Inhaltsverzeichnis ---------- */
+.toc{margin:44px 0 8px;background:var(--stone-50);border:1px solid var(--line-soft);border-radius:var(--radius-l);padding:26px 28px;}
+.toc h2{font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:.02em;text-transform:uppercase;color:var(--ink-45);}
+.toc ol{margin:16px 0 0;padding:0;list-style:none;counter-reset:toc;columns:2;column-gap:34px;}
+@media (max-width:620px){.toc ol{columns:1;}}
+.toc li{counter-increment:toc;font-size:14px;line-height:1.5;margin-bottom:9px;break-inside:avoid;padding-left:26px;position:relative;}
+.toc li::before{content:counter(toc) ".";position:absolute;left:0;color:var(--ink-45);font-variant-numeric:tabular-nums;}
+.toc a{color:var(--ink-80);text-decoration:none;border-bottom:1px solid transparent;}
+.toc a:hover{color:var(--red);border-bottom-color:var(--red);}
+
+/* ---------- Fliesstext ----------
+   Bewusst ohne Fettungen im laufenden Text: Hervorhebungen entstehen
+   ueber Ueberschriften, Listen und den roten Hinweiskasten. */
+section.ds{margin-top:48px;scroll-margin-top:24px;}
+section.ds > h2{font-family:var(--font-display);font-weight:700;font-size:21px;line-height:1.3;letter-spacing:-.005em;padding-bottom:12px;border-bottom:2px solid var(--red);display:block;}
+section.ds > h2 .num{color:var(--red);font-variant-numeric:tabular-nums;margin-right:10px;}
+section.ds h3{font-family:var(--font-display);font-weight:700;font-size:16px;margin-top:26px;}
+section.ds p{margin-top:14px;font-size:15.5px;line-height:1.72;color:var(--ink-80);}
+section.ds p:first-of-type{margin-top:18px;}
+section.ds ul,section.ds ol{margin:14px 0 0;padding-left:22px;}
+section.ds li{font-size:15.5px;line-height:1.72;color:var(--ink-80);margin-bottom:8px;}
+section.ds a{color:var(--red);text-decoration:underline;text-underline-offset:2px;word-break:break-word;}
+
+.addr{margin-top:18px;background:var(--white);border:1px solid var(--line-soft);border-radius:var(--radius-m);padding:20px 22px;box-shadow:var(--shadow-sm);font-size:15.5px;line-height:1.7;color:var(--ink-80);}
+.addr .addr-name{display:block;color:var(--ink);font-weight:700;}
+
+.note{margin-top:20px;background:var(--red-light);border-left:3px solid var(--red);border-radius:0 var(--radius-m) var(--radius-m) 0;padding:18px 22px;}
+.note p{margin-top:12px;font-size:15px;line-height:1.65;color:var(--ink);}
+/* Spezifitaet muss "section.ds h3" schlagen, sonst gewinnt dessen 16px. */
+section.ds .note h3{font-family:var(--font-display);font-weight:700;font-size:13px;line-height:1.4;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);margin-top:22px;}
+section.ds .note > *:first-child{margin-top:0;}
+
+.btn-consent{margin-top:18px;display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-body);font-weight:700;font-size:14.5px;padding:13px 26px;border:0;border-radius:var(--radius-s);background:var(--red);color:var(--white);cursor:pointer;transition:background .25s var(--ease);}
+.btn-consent:hover{background:var(--red-dark);}
+[hidden]{display:none !important;}
+
+.tbl-wrap{margin-top:18px;overflow-x:auto;border:1px solid var(--line-soft);border-radius:var(--radius-m);background:var(--white);}
+table{border-collapse:collapse;width:100%;min-width:540px;font-size:14px;}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line-soft);vertical-align:top;line-height:1.55;color:var(--ink-80);}
+th{font-weight:700;color:var(--ink);background:var(--stone-50);font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;}
+tr:last-child td{border-bottom:none;}
+
+.back-row{margin-top:56px;padding-top:26px;border-top:1px solid var(--line-soft);}
+.back-row a{font-size:14px;color:var(--ink-45);text-decoration:underline;}
+
+.site-footer{border-top:1px solid var(--line-soft);padding:28px 0;text-align:center;}
+.site-footer .legal-links{display:flex;justify-content:center;gap:18px;font-size:12.5px;color:var(--ink-45);flex-wrap:wrap;}
+.site-footer .legal-links a{text-decoration:underline;color:inherit;}
+.site-footer .copyright{margin-top:12px;font-size:12px;color:var(--ink-45);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" aria-label="Poll Massivhaus – Startseite"><img src="assets/img/logo-positiv.svg" alt="Poll Massivhaus"></a>
+</header>
+
+<main>
+  <div class="container">
+
+    <div class="doc-head">
+      <span class="eyebrow">Rechtliches</span>
+      <h1>Datenschutzerklärung</h1>
+      <p class="lead">Hier erfahren Sie nach Art. 13 DSGVO, welche personenbezogenen Daten wir beim Besuch dieser Website verarbeiten, warum, auf welcher Rechtsgrundlage und welche Rechte Ihnen zustehen.</p>
+      <p class="doc-meta">Gilt für massivhaus.poll-gruppe.com einschließlich aller Unterseiten. · Stand: September 2026</p>
+    </div>
+
+    <nav class="toc" aria-label="Inhaltsverzeichnis">
+      <h2>Inhalt</h2>
+      <ol>
+        <li><a href="#verantwortlicher">Verantwortlicher</a></li>
+        <li><a href="#hosting">Hosting, Zugriffsdaten, Schriftarten</a></li>
+        <li><a href="#cookies">Cookies und Einwilligung</a></li>
+        <li><a href="#gtm">Google Tag Manager</a></li>
+        <li><a href="#ads">Google Ads Conversion-Tracking</a></li>
+        <li><a href="#formular">Anfrageformular</a></li>
+        <li><a href="#direktkontakt">Anfragen per E-Mail oder Telefon</a></li>
+        <li><a href="#empfaenger">Empfänger und Drittländer</a></li>
+        <li><a href="#speicherdauer">Speicherdauer</a></li>
+        <li><a href="#rechte">Ihre Rechte</a></li>
+        <li><a href="#widerspruch">Widerspruchsrecht</a></li>
+        <li><a href="#sonstiges">Weitere Hinweise</a></li>
+      </ol>
+    </nav>
+
+    <!-- Kein Abschnitt "Datenschutzbeauftragter": Es ist keiner bestellt
+         (Auskunft des Verantwortlichen, 14.09.2026). Art. 13 Abs. 1 lit. b
+         DSGVO verlangt die Angabe nur "gegebenenfalls", also nur dann, wenn
+         tatsaechlich einer benannt ist. Sollte sich das aendern - etwa weil
+         die Schwelle des Paragrafen 38 Abs. 1 BDSG erreicht wird (in der
+         Regel mindestens 20 Personen, die staendig mit der automatisierten
+         Verarbeitung personenbezogener Daten beschaeftigt sind) -, ist hier
+         ein Abschnitt mit Name und Kontaktdaten zu ergaenzen. -->
+
+    <!-- ================= 1 ================= -->
+    <section class="ds" id="verantwortlicher">
+      <h2><span class="num">1.</span>Verantwortlicher</h2>
+      <p>Verantwortlicher im Sinne des Art. 4 Nr. 7 DSGVO ist:</p>
+      <div class="addr">
+        <span class="addr-name">Poll Holding GmbH</span>
+        Bahnhofstraße 20, 53520 Dümpelfeld<br>
+        Vertreten durch den Geschäftsführer: Jarno Poll<br>
+        HRB 24291, Amtsgericht Koblenz · USt-IdNr. DE296939533<br><br>
+        Telefon: +49 2695 88 23 9-00<br>
+        E-Mail: <a href="mailto:info@poll-gruppe.com">info@poll-gruppe.com</a>
+      </div>
+      <p>Weitere Angaben finden Sie im <a href="https://www.poll-gruppe.com/impressum" target="_blank" rel="noopener">Impressum</a>.</p>
+    </section>
+
+    <!-- ================= 2 ================= -->
+    <section class="ds" id="hosting">
+      <h2><span class="num">2.</span>Hosting, Zugriffsdaten und Schriftarten</h2>
+      <p>Diese Website wird über GitHub Pages gehostet, einen Dienst der GitHub, Inc. (88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA; für den EWR: GitHub B.V., Vijzelstraat 68–72, 1017 HL Amsterdam), einem Tochterunternehmen der Microsoft Corporation.</p>
+      <p>Beim Aufruf der Seite verarbeitet der Hoster automatisch die technisch erforderlichen Zugriffsdaten: IP-Adresse, Datum und Uhrzeit, abgerufene Datei, übertragene Datenmenge, Browsertyp und -version, Betriebssystem sowie die zuvor besuchte Seite. Ohne diese Verarbeitung lässt sich die Website nicht ausliefern. Rechtsgrundlage ist unser berechtigtes Interesse an einer sicheren und effizienten Bereitstellung unseres Online-Angebots (Art. 6 Abs. 1 lit. f DSGVO). Wir selbst haben auf diese Protokolldaten keinen Zugriff und werten sie nicht aus; eine Zusammenführung mit anderen Daten findet nicht statt.</p>
+      <p>Mit dem Hoster besteht ein Vertrag über die Auftragsverarbeitung nach Art. 28 DSGVO. Die Übermittlung in die USA stützen wir auf die Zertifizierung nach dem EU-U.S. Data Privacy Framework sowie ergänzend auf die Standardvertragsklauseln der EU-Kommission. Einzelheiten im <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Privacy Statement</a>.</p>
+      <p>Die Übertragung erfolgt SSL-/TLS-verschlüsselt. Alle verwendeten Schriftarten liegen auf unserem eigenen Webspace – es wird keine Verbindung zu Google Fonts oder anderen Schriftanbietern aufgebaut.</p>
+    </section>
+
+    <!-- ================= 3 ================= -->
+    <section class="ds" id="cookies">
+      <h2><span class="num">3.</span>Cookies und Einwilligung</h2>
+      <p>Beim ersten Aufruf zeigen wir Ihnen ein Einwilligungsbanner. Solange Sie dort nichts auswählen, wird nichts geladen und nichts gemessen. Erst Ihre aktive Zustimmung aktiviert den jeweiligen Dienst. Sie können ebenso einfach ablehnen wie zustimmen; Nachteile entstehen Ihnen dadurch nicht.</p>
+      <p>Der Banner unterscheidet zwei Kategorien:</p>
+      <ul>
+        <li>Notwendig – ausschließlich die Speicherung Ihrer Auswahl. Nicht abwählbar, da ohne sie kein Einwilligungsmanagement möglich ist.</li>
+        <li>Marketing – Messung der Wirksamkeit unserer Anzeigen. Umfasst den Google Tag Manager (Ziffer 4) und das Google Ads Conversion-Tracking (Ziffer 5).</li>
+      </ul>
+      <p>Beide Dienste stehen in einer gemeinsamen Kategorie, weil sie demselben Zweck dienen: Der Tag Manager liefert auf dieser Website ausschließlich die Tags des Conversion-Trackings aus. Im Banner können Sie jede Kategorie aufklappen und die zugehörige Beschreibung lesen. Rechtsgrundlage für die Kategorie Marketing ist § 25 Abs. 1 TDDDG in Verbindung mit Art. 6 Abs. 1 lit. a DSGVO.</p>
+      <p>Ihre Entscheidung selbst speichern wir ohne externen Dienstleister im lokalen Speicher Ihres Browsers (Eintrag <em>pollConsent</em>, Laufzeit 12 Monate). Gespeichert werden nur der Zeitpunkt, Ihre Auswahl je Kategorie und die Version der Einwilligungstexte – keine Gerätekennung, keine IP-Adresse, keine Browserdaten. Der Eintrag verbleibt auf Ihrem Gerät; wir erhalten ihn nicht. Diese Speicherung ist für den Betrieb der Website erforderlich (§ 25 Abs. 2 Nr. 2 TDDDG, Art. 6 Abs. 1 lit. c und lit. f DSGVO).</p>
+      <p>Sie können Ihre Auswahl jederzeit mit Wirkung für die Zukunft ändern oder widerrufen; die Rechtmäßigkeit der bis dahin erfolgten Verarbeitung bleibt unberührt. Beim Widerruf löschen wir die auf dieser Website gesetzten Google-Ads-Cookies und laden die Seite neu, damit der Tag Manager nicht weiter ausgeführt wird. Cookies, die Google auf eigenen Domains gesetzt hat, verwalten Sie über die in Ziffer 5 genannten Google-Einstellungen oder über Ihren Browser.</p>
+      <button type="button" class="btn-consent" data-consent-reopen hidden>Cookie-Einstellungen öffnen</button>
+    </section>
+
+    <!-- ================= 4 ================= -->
+    <section class="ds" id="gtm">
+      <h2><span class="num">4.</span>Google Tag Manager</h2>
+      <p>Wir nutzen den Google Tag Manager der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland, um die Messtechnik dieser Seite zu verwalten. Der Tag Manager selbst erstellt keine Nutzerprofile und erfasst keine personenbezogenen Daten eigenständig; beim Laden wird jedoch Ihre IP-Adresse an Google übertragen, und die über ihn eingebundenen Dienste können ihrerseits Daten erfassen.</p>
+      <p>Der Container wird erst geladen, wenn Sie im Banner der Kategorie Marketing zugestimmt haben (§ 25 Abs. 1 TDDDG, Art. 6 Abs. 1 lit. a DSGVO). Dabei wird zugleich das Signal <em>analytics_storage</em> auf „gewährt" gesetzt. Die Einwilligung ist jederzeit widerruflich. Mit Google besteht ein Vertrag über die Auftragsverarbeitung nach Art. 28 DSGVO.</p>
+    </section>
+
+    <!-- ================= 5 ================= -->
+    <section class="ds" id="ads">
+      <h2><span class="num">5.</span>Google Ads Conversion-Tracking</h2>
+      <p>Wir bewerben diese Website über Google Ads (Google Ireland Limited, Anschrift wie oben). Gelangen Sie über eine Anzeige zu uns, hängt Google an die Ziel-Adresse einen Klick-Parameter an und speichert – nach Ihrer Einwilligung – ein Cookie, das diesen Klick kennzeichnet. Nutzen Sie unsere Website anschließend – etwa indem Sie das Anfrageformular absenden, uns anrufen oder sich die Seite längere Zeit ansehen –, erkennt Google den Zusammenhang. Übermittelt werden dabei auch Ihre IP-Adresse, Browser- und Geräteangaben, Zeitpunkt und aufgerufene Seite.</p>
+      <p>Wir erhalten von Google ausschließlich aggregierte Statistiken darüber, wie viele Personen auf unsere Anzeigen geklickt und danach mit unserer Website interagiert haben – keine Informationen, mit denen wir Sie identifizieren könnten.</p>
+      <p>Die auf dieser Website gesetzten Conversion-Cookies werden nach spätestens 90 Tagen gelöscht. Cookies, die Google auf eigenen Domains setzt, haben je nach Cookie eine Laufzeit von in der Regel bis zu 24 Monaten.</p>
+      <p>Das Conversion-Tracking wird ausschließlich aktiviert, wenn Sie im Banner der Kategorie Marketing zugestimmt haben (§ 25 Abs. 1 TDDDG, Art. 6 Abs. 1 lit. a DSGVO). Wir setzen dabei den Google Consent Mode ein: Ihre Entscheidung wird als Signal an Google übermittelt: <em>ad_storage</em>, <em>ad_user_data</em>, <em>ad_personalization</em> und <em>analytics_storage</em>. Solange Sie nicht eingewilligt haben, weisen diese Signale Google an, keine Cookies zu setzen und keine Endgeräte-Kennungen zu verarbeiten.</p>
+      <p>Unabhängig davon können Sie personalisierte Werbung bei Google unter <a href="https://myadcenter.google.com/" target="_blank" rel="noopener">myadcenter.google.com</a> deaktivieren. Weitere Informationen: <a href="https://policies.google.com/privacy?hl=de" target="_blank" rel="noopener">policies.google.com/privacy</a> und <a href="https://policies.google.com/technologies/ads?hl=de" target="_blank" rel="noopener">policies.google.com/technologies/ads</a>.</p>
+    </section>
+
+    <!-- ================= 6 ================= -->
+    <section class="ds" id="formular">
+      <h2><span class="num">6.</span>Anfrageformular</h2>
+      <p>Über unser Formular können Sie ein unverbindliches Erstgespräch anfragen. Verarbeitet werden die von Ihnen eingegebenen Angaben – Name, Telefonnummer, E-Mail-Adresse, gewünschte Hausart, Angaben zu Grundstück und Planungsstand sowie Ihre Nachricht – nebst Zeitpunkt des Absendens und IP-Adresse. Pflichtfelder sind gekennzeichnet, alle übrigen Angaben sind freiwillig. Ein unsichtbares Prüffeld erkennt automatisierte Spam-Einträge, ohne zusätzliche Daten zu erheben.</p>
+      <p>Wir nutzen diese Daten ausschließlich, um Ihre Anfrage zu bearbeiten und Ihr Bauvorhaben mit Ihnen zu besprechen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen auf Ihre Anfrage hin), ergänzend Art. 6 Abs. 1 lit. a DSGVO, soweit Sie eine Einwilligung erteilt haben, und Art. 6 Abs. 1 lit. f DSGVO für die Spam-Abwehr.</p>
+      <p>Die technische Zustellung an unser Postfach übernimmt Web3Forms (Web3Creative, Kerala, Indien). Die Server des Anbieters stehen in den USA; als Unterauftragsverarbeiter kommen unter anderem Amazon Web Services, Cloudflare und Hetzner zum Einsatz. Es besteht ein Vertrag über die Auftragsverarbeitung nach Art. 28 DSGVO; da für Indien kein Angemessenheitsbeschluss vorliegt, wird die Übermittlung auf die Standardvertragsklauseln der EU-Kommission gestützt. Dort werden Übermittlungen nach Angaben des Anbieters spätestens nach drei Jahren automatisch gelöscht. Weitere Informationen: <a href="https://web3forms.com/privacy" target="_blank" rel="noopener">web3forms.com/privacy</a> und <a href="https://web3forms.com/dpa" target="_blank" rel="noopener">web3forms.com/dpa</a>.</p>
+      <div class="note">
+        <h3>Hinweis zum Drittlandtransfer</h3>
+        <p>Trotz dieser Garantien lässt sich ein Zugriff von Behörden in den USA oder Indien nicht vollständig ausschließen. Möchten Sie das vermeiden, kontaktieren Sie uns bitte telefonisch oder per E-Mail über die Angaben in Ziffer 1.</p>
+      </div>
+      <p>Ihre Angaben verbleiben bei uns, bis Sie uns zur Löschung auffordern, eine Einwilligung widerrufen oder der Zweck entfällt – etwa nach abgeschlossener Bearbeitung. Gesetzliche Aufbewahrungsfristen bleiben unberührt.</p>
+    </section>
+
+    <!-- ================= 7 ================= -->
+    <section class="ds" id="direktkontakt">
+      <h2><span class="num">7.</span>Anfragen per E-Mail oder Telefon</h2>
+      <p>Kontaktieren Sie uns per E-Mail oder telefonisch, speichern wir Ihre Angaben einschließlich Ihrer Kontaktdaten, um Ihr Anliegen zu bearbeiten und für Anschlussfragen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO bei vertraglichem Bezug, sonst unser berechtigtes Interesse an der Bearbeitung Ihrer Anfrage (Art. 6 Abs. 1 lit. f DSGVO) oder Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Die Daten bleiben gespeichert, bis der Zweck entfällt oder Sie die Löschung verlangen; gesetzliche Aufbewahrungsfristen bleiben unberührt.</p>
+      <p>Bitte beachten Sie, dass unverschlüsselte E-Mail keinen lückenlosen Schutz vor dem Zugriff Dritter bietet.</p>
+    </section>
+
+    <!-- ================= 8 ================= -->
+    <section class="ds" id="empfaenger">
+      <h2><span class="num">8.</span>Empfänger und Übermittlung in Drittländer</h2>
+      <p>Wir geben Ihre Daten nur weiter, soweit es zur Zweckerfüllung erforderlich ist, Sie eingewilligt haben oder wir gesetzlich dazu verpflichtet sind. Ein Verkauf Ihrer Daten findet nicht statt.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr><th>Empfänger</th><th>Zweck</th><th>Rolle · Rechtsgrundlage</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>GitHub, Inc. / Microsoft<br>(USA, EU-Niederlassung Amsterdam)</td><td>Hosting der Website</td><td>Auftragsverarbeiter · Art. 6 Abs. 1 lit. f</td></tr>
+            <tr><td>Web3Creative / Web3Forms<br>(Indien, Server USA)</td><td>Zustellung der Formularanfragen</td><td>Auftragsverarbeiter · Art. 6 Abs. 1 lit. b</td></tr>
+            <tr><td>Google Ireland Limited<br>(Irland, Konzern in den USA)</td><td>Tag Manager, Conversion-Tracking</td><td>Auftragsverarbeiter · Art. 6 Abs. 1 lit. a</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Daneben können Daten im Rahmen der Vertragsanbahnung und -durchführung an ausführende Partnerbetriebe weitergegeben werden, soweit dies für Ihr Bauvorhaben erforderlich ist, sowie an Steuerberatung, Wirtschaftsprüfung und Behörden, soweit gesetzlich vorgeschrieben.</p>
+      <p>Dabei werden Daten auch in die USA und nach Indien übermittelt. Für die USA besteht mit dem EU-U.S. Data Privacy Framework ein Angemessenheitsbeschluss, soweit der Empfänger zertifiziert ist (Art. 45 DSGVO); für Indien besteht keiner. Greift kein Angemessenheitsbeschluss, stützen wir die Übermittlung auf die Standardvertragsklauseln der EU-Kommission (Art. 46 Abs. 2 lit. c DSGVO), ergänzt um zusätzliche Schutzmaßnahmen. Eine Kopie der Garantien können Sie über die Adresse in Ziffer 1 anfordern. In Drittländern lässt sich ein Zugriff staatlicher Stellen nicht in jedem Fall ausschließen, und die Durchsetzung Ihrer Rechte kann erschwert sein.</p>
+    </section>
+
+    <!-- ================= 9 ================= -->
+    <section class="ds" id="speicherdauer">
+      <h2><span class="num">9.</span>Speicherdauer</h2>
+      <p>Soweit oben keine speziellere Dauer genannt ist, speichern wir Ihre Daten nur so lange, wie es für den jeweiligen Zweck erforderlich ist. Entfällt der Zweck oder widerrufen Sie eine Einwilligung, werden die Daten gelöscht oder gesperrt, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen – handels- und steuerrechtlich in der Regel sechs beziehungsweise zehn Jahre (§ 257 HGB, § 147 AO). Danach erfolgt die routinemäßige Löschung.</p>
+    </section>
+
+    <!-- ================= 10 ================= -->
+    <section class="ds" id="rechte">
+      <h2><span class="num">10.</span>Ihre Rechte</h2>
+      <p>Ihnen stehen uns gegenüber die folgenden Rechte zu:</p>
+      <ul>
+        <li>Auskunft über die zu Ihnen gespeicherten Daten (Art. 15 DSGVO)</li>
+        <li>Berichtigung unrichtiger oder Vervollständigung unvollständiger Daten (Art. 16 DSGVO)</li>
+        <li>Löschung, sofern einer der Gründe des Art. 17 DSGVO vorliegt</li>
+        <li>Einschränkung der Verarbeitung unter den Voraussetzungen des Art. 18 DSGVO</li>
+        <li>Datenübertragbarkeit in einem gängigen, maschinenlesbaren Format (Art. 20 DSGVO)</li>
+        <li>Widerspruch gegen bestimmte Verarbeitungen (Art. 21 DSGVO – siehe Ziffer 11)</li>
+        <li>Widerruf einer Einwilligung jederzeit mit Wirkung für die Zukunft (Art. 7 Abs. 3 DSGVO)</li>
+      </ul>
+      <p>Eine formlose Mitteilung an die Anschrift oder E-Mail-Adresse aus Ziffer 1 genügt. Die Ausübung ist für Sie grundsätzlich kostenfrei; zur Bearbeitung können wir Sie um Angaben zu Ihrer Identifizierung bitten (Art. 12 Abs. 6 DSGVO). Ihre Cookie-Auswahl ändern Sie am schnellsten direkt hier:</p>
+      <button type="button" class="btn-consent" data-consent-reopen hidden>Cookie-Einstellungen öffnen</button>
+
+      <h3>Beschwerde bei einer Aufsichtsbehörde</h3>
+      <p>Sind Sie der Ansicht, dass die Verarbeitung Ihrer Daten gegen die DSGVO verstößt, können Sie sich nach Art. 77 DSGVO bei einer Aufsichtsbehörde beschweren – insbesondere in dem Mitgliedstaat Ihres Aufenthaltsorts, Ihres Arbeitsplatzes oder des mutmaßlichen Verstoßes. Für uns zuständig ist der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Rheinland-Pfalz, Hintere Bleiche 34, 55116 Mainz, Telefon 06131 208-2449, <a href="mailto:poststelle@datenschutz.rlp.de">poststelle@datenschutz.rlp.de</a>, <a href="https://www.datenschutz.rlp.de" target="_blank" rel="noopener">www.datenschutz.rlp.de</a>.</p>
+    </section>
+
+    <!-- ================= 11 ================= -->
+    <section class="ds" id="widerspruch">
+      <h2><span class="num">11.</span>Widerspruchsrecht</h2>
+      <div class="note">
+        <h3>Widerspruch bei Verarbeitungen auf Grundlage berechtigter Interessen</h3>
+        <p>Verarbeiten wir Daten auf Grundlage von Art. 6 Abs. 1 lit. e oder lit. f DSGVO, haben Sie jederzeit das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, Widerspruch einzulegen; dies gilt auch für ein darauf gestütztes Profiling. Wir verarbeiten Ihre Daten dann nicht mehr, es sei denn, wir können zwingende schutzwürdige Gründe nachweisen, die Ihre Interessen, Rechte und Freiheiten überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen (Art. 21 Abs. 1 DSGVO).</p>
+        <h3>Widerspruch gegen Direktwerbung</h3>
+        <p>Werden Ihre Daten verarbeitet, um Direktwerbung zu betreiben, haben Sie jederzeit das Recht, Widerspruch einzulegen; dies gilt auch für ein damit verbundenes Profiling. Nach Ihrem Widerspruch werden Ihre Daten nicht mehr für Direktwerbung verwendet (Art. 21 Abs. 2 DSGVO).</p>
+      </div>
+      <p>Der Widerspruch ist an keine Form gebunden; die Kontaktdaten finden Sie in Ziffer 1.</p>
+    </section>
+
+    <!-- ================= 12 ================= -->
+    <section class="ds" id="sonstiges">
+      <h2><span class="num">12.</span>Weitere Hinweise</h2>
+      <h3>Erforderlichkeit Ihrer Angaben</h3>
+      <p>Die Bereitstellung personenbezogener Daten ist weder gesetzlich noch vertraglich vorgeschrieben. Für den Besuch der Website ist die Verarbeitung der Zugriffsdaten aus Ziffer 2 technisch unvermeidbar. Möchten Sie das Anfrageformular nutzen, benötigen wir die dort gekennzeichneten Pflichtfelder – ohne sie können wir Ihre Anfrage nicht bearbeiten. Alle übrigen Angaben sind freiwillig.</p>
+      <h3>Keine automatisierte Entscheidungsfindung</h3>
+      <p>Eine automatisierte Entscheidungsfindung einschließlich Profiling im Sinne des Art. 22 Abs. 1 und 4 DSGVO findet nicht statt.</p>
+      <h3>Links zu externen Websites</h3>
+      <p>Für Inhalte und Datenverarbeitung verlinkter Websites Dritter ist der jeweilige Anbieter verantwortlich. Mit dem Klick verlassen Sie unsere Website; es gelten dann dessen Datenschutzbestimmungen.</p>
+      <h3>Änderungen dieser Erklärung</h3>
+      <p>Wir passen diese Datenschutzerklärung an, wenn sich die Rechtslage oder die auf dieser Website eingesetzten Dienste ändern. Für Ihren erneuten Besuch gilt die jeweils hier veröffentlichte Fassung.</p>
+      <p class="doc-meta">Stand: September 2026</p>
+    </section>
+
+    <div class="back-row">
+      <a href="index.html">&larr; Zurück zur Startseite</a>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="legal-links">
+      <a href="https://www.poll-gruppe.com/impressum" target="_blank" rel="noopener">Impressum</a>
+      <a href="datenschutz.html">Datenschutzerklärung</a>
+    </div>
+    <div class="copyright">© <span id="year"></span> Poll Holding GmbH. Alle Rechte vorbehalten.</div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ---------- Cookie-Einstellungen erneut oeffnen ----------
+   Die Buttons bleiben ausgeblendet, solange der Consent-Banner keine
+   Oeffnen-Funktion bereitstellt - so entsteht nie ein toter Button. */
+(function(){
+  var buttons = Array.prototype.slice.call(document.querySelectorAll('[data-consent-reopen]'));
+  if (!buttons.length) return;
+  var tries = 0;
+  function resolveOpener(){
+    if (typeof window.openConsentSettings === 'function') return window.openConsentSettings;
+    if (window.pollConsent && typeof window.pollConsent.open === 'function') return window.pollConsent.open.bind(window.pollConsent);
+    return null;
+  }
+  (function check(){
+    var opener = resolveOpener();
+    if (opener){
+      buttons.forEach(function(btn){
+        btn.hidden = false;
+        btn.addEventListener('click', function(){ opener(); });
+      });
+      return;
+    }
+    if (++tries < 20) setTimeout(check, 250);
+  })();
+})();
+</script>
+
+</body>
+</html>
