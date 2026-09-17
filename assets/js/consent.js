@@ -292,6 +292,17 @@
   };
   window.openConsentSettings = function () { openBanner(); };
 
+  // Jedes Element mit data-consent-open oeffnet den Banner erneut - z. B. der
+  // Link "Cookie-Einstellungen" im Seitenfuss. Art. 7 Abs. 3 DSGVO: Der
+  // Widerruf muss so einfach sein wie die Einwilligung, also von jeder Seite
+  // aus mit einem Klick erreichbar.
+  document.addEventListener('click', function (e) {
+    var trigger = e.target.closest && e.target.closest('[data-consent-open]');
+    if (!trigger) return;
+    e.preventDefault();
+    openBanner();
+  });
+
 
   /* ==========================================================================
      7. STYLES
