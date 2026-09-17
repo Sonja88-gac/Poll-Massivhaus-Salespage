@@ -246,10 +246,12 @@ h2.section-title{
 @media (max-width:560px){
   .usp-list{grid-template-columns:1fr;}
 }
-/* Nur Mobil: die Erklaerung wird per JS in das (einspaltige, zentrierte)
-   .usp-layout einsortiert und muss dort die volle Breite behalten. */
+/* Nur Mobil: die Erklaerung wird per JS direkt hinter die Rasterzeile der
+   angetippten Kachel gehaengt. Dort spannt sie beide Spalten; den Abstand zur
+   Kachel liefert das gap des Rasters, deshalb kein zusaetzlicher margin-top. */
 @media (max-width:1024px){
-  .usp-layout > .usp-detail{width:100%;}
+  .usp-list > .usp-detail{grid-column:1 / -1;}
+  .usp-list > .usp-detail.is-open{margin-top:0;}
 }
 .usp-copy{max-width:440px;}
 @media (max-width:1240px){.usp-copy{max-width:640px;text-align:center;}}
@@ -265,7 +267,7 @@ h2.section-title{
 @media (max-width:1024px){
   .nur-mobil{display:inline;}
   .nur-desktop{display:none;}
-  .usp-copy{margin-top:14px;padding:28px 22px 26px;background:var(--white);border:1px solid var(--line-soft);border-top:3px solid var(--red);border-radius:var(--radius-m);box-shadow:var(--shadow-sm);}
+  .usp-copy{margin-top:38px;padding:28px 22px 26px;background:var(--white);border:1px solid var(--line-soft);border-top:3px solid var(--red);border-radius:var(--radius-m);box-shadow:var(--shadow-sm);}
   /* Spezifitaet erhoeht: die Basisregel .usp-copy-heading steht weiter unten im
      Stylesheet und wuerde align-items sonst zurueckdrehen. */
   .usp-copy .usp-copy-heading{flex-direction:column;align-items:center;gap:10px;margin-bottom:12px;}
@@ -2283,31 +2285,51 @@ const uspDetail = document.getElementById('uspDetail');
 const uspDetailText = document.getElementById('uspDetailText');
 const uspToggleBtns = document.querySelectorAll('.usp-node-inner[data-usp]');
 let uspOpenKey = null;
-/* Auf Mobil gehoert die aufgeklappte Erklaerung direkt unter die Kacheln – also
-   VOR den Block "Was das fuer Sie bedeutet". Auf Desktop bleibt die Reihenfolge
-   (und damit das Layout) unveraendert, deshalb wird der Knoten nur unterhalb
-   von 1024px umgehaengt und darueber an seinen alten Platz zurueckgestellt. */
+/* Mobil (bis 1024px): Die Erklaerung klappt direkt unter der angetippten Kachel
+   auf. Dafuer wird der eine #uspDetail-Knoten beim Oeffnen hinter die letzte
+   Kachel derselben Rasterzeile gehaengt - einspaltig also direkt unter die
+   Kachel, zweispaltig unter das Kachelpaar - und spannt dort die volle Breite.
+   Geschlossen liegt er wieder an seinem urspruenglichen Platz ausserhalb aller
+   Raster; in einem Raster wuerde er als leere Zeile zusaetzlichen Abstand
+   erzeugen. Desktop ist unveraendert: dort verlaesst der Knoten diesen Platz nie. */
 const uspMq = window.matchMedia('(max-width:1024px)');
-const uspLayoutEl = document.querySelector('.usp-layout');
-const uspCopyEl = document.querySelector('.usp-copy');
+const uspListEl = document.getElementById('uspList');
 const uspDetailHome = uspDetail.parentElement;
-function placeUspDetail(){
-  if (uspMq.matches){
-    if (uspDetail.parentElement !== uspLayoutEl) uspLayoutEl.insertBefore(uspDetail, uspCopyEl);
-  } else if (uspDetail.parentElement !== uspDetailHome){
-    uspDetailHome.appendChild(uspDetail);
-  }
+let uspParkTimer = null;
+function parkUspDetail(){
+  if (uspDetail.parentElement !== uspDetailHome) uspDetailHome.appendChild(uspDetail);
 }
-placeUspDetail();
-uspMq.addEventListener('change', placeUspDetail);
+function placeUspDetailUnder(btn){
+  const tiles = [...uspListEl.children].filter(el => el !== uspDetail);
+  const idx = tiles.indexOf(btn);
+  if (idx < 0) return;
+  const cols = getComputedStyle(uspListEl).gridTemplateColumns.split(' ').filter(Boolean).length || 1;
+  const rowEnd = Math.min(tiles.length - 1, Math.floor(idx / cols) * cols + cols - 1);
+  if (tiles[rowEnd].nextElementSibling !== uspDetail) tiles[rowEnd].after(uspDetail);
+}
 function closeUspDetail(){
   uspOpenKey = null;
   uspDetail.classList.remove('is-open');
   uspToggleBtns.forEach(b => b.setAttribute('aria-expanded','false'));
+  clearTimeout(uspParkTimer);
+  // Erst nach der Zuklapp-Animation (.5s) zurueck an den Ruheplatz, sonst springt es.
+  uspParkTimer = setTimeout(() => { if (uspOpenKey === null) parkUspDetail(); }, 520);
 }
+uspMq.addEventListener('change', () => { closeUspDetail(); clearTimeout(uspParkTimer); parkUspDetail(); });
 function openUspDetail(key, btn){
+  clearTimeout(uspParkTimer);
   uspOpenKey = key;
   uspDetailText.textContent = USP_DETAILS[key] || '';
+  if (uspMq.matches && uspListEl.contains(btn)){
+    const vorher = uspDetail.previousElementSibling;
+    placeUspDetailUnder(btn);
+    if (uspDetail.previousElementSibling !== vorher){
+      // Neuer Platz: frisch aufklappen lassen, statt das offene Panel springen zu lassen.
+      // Der erzwungene Reflow sorgt dafuer, dass die max-height-Animation von 0 startet.
+      uspDetail.classList.remove('is-open');
+      void uspDetail.offsetHeight;
+    }
+  }
   uspDetail.classList.add('is-open');
   uspToggleBtns.forEach(b => b.setAttribute('aria-expanded', b.dataset.usp === key ? 'true' : 'false'));
   // Wait for the .5s max-height transition to finish before measuring, so the
@@ -2317,20 +2339,21 @@ function openUspDetail(key, btn){
     const rect = uspDetail.getBoundingClientRect();
     const margin = 32;
     if (uspMq.matches){
-      /* Auf Mobil verdecken die fixierte Kopfleiste oben und die fixierte
-         CTA-Leiste unten je ~70px. Ohne diese Korrektur landet das Ende der
-         Erklaerung hinter der CTA-Leiste und wirkt abgeschnitten. Statt am
-         unteren Rand auszurichten, setzen wir den Anfang der Erklaerung direkt
-         unter die Kopfleiste – gelesen wird von oben nach unten. */
+      /* Mobil: Kopfleiste oben und fixierte CTA-Leiste unten verdecken je ~70px.
+         Die Erklaerung sitzt jetzt direkt unter der angetippten Kachel, ist also
+         meist schon im Bild. Gescrollt wird nur so weit wie noetig, damit ihr Ende
+         ueber der CTA-Leiste steht - aber nie so weit, dass ihr Anfang unter die
+         Kopfleiste rutscht. */
       const header = document.getElementById('siteHeader');
       const cta = document.getElementById('stickyCta');
       const headerH = header ? header.getBoundingClientRect().height : 0;
       const ctaH = (cta && getComputedStyle(cta).position === 'fixed') ? cta.getBoundingClientRect().height : 0;
       const obenFrei = headerH + margin;
       const untenFrei = window.innerHeight - ctaH - margin;
-      if (rect.top < obenFrei || rect.bottom > untenFrei){
-        window.scrollTo({top: Math.max(0, window.scrollY + rect.top - obenFrei), behavior:'smooth'});
-      }
+      let delta = 0;
+      if (rect.bottom > untenFrei) delta = Math.min(rect.bottom - untenFrei, rect.top - obenFrei);
+      else if (rect.top < obenFrei) delta = rect.top - obenFrei;
+      if (delta) window.scrollTo({top: Math.max(0, window.scrollY + delta), behavior:'smooth'});
       return;
     }
     if (rect.top < margin || rect.bottom > window.innerHeight - margin){
