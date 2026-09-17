@@ -451,7 +451,7 @@
           '<h2 class="pc-title" id="pcTitle">Cookie-Einstellungen</h2>' +
           '<p class="pc-intro">Wir nutzen Cookies, um unsere Website technisch bereitzustellen. ' +
             'Mit Ihrer Einwilligung setzen wir außerdem Marketing-Cookies ein. Details finden Sie in unserer ' +
-            '<a href="' + PRIVACY_URL + '">Datenschutzerklärung</a> und im ' +
+            '<a href="' + PRIVACY_URL + '" target="_blank" rel="noopener">Datenschutzerklärung</a> und im ' +
             '<a href="' + IMPRINT_URL + '" target="_blank" rel="noopener">Impressum</a>.</p>' +
         '</div>' +
 
