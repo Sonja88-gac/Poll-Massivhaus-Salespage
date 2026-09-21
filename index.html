@@ -18,11 +18,11 @@
 <meta property="og:url" content="https://massivhaus.poll-gruppe.com/">
 <meta property="og:title" content="Massivhaus schlüsselfertig bauen | Poll Massivhaus">
 <meta property="og:description" content="Schlüsselfertiges Massivhaus, individuell geplant – zum Festpreis, mit planbarer Bauzeit. Regional von der Eifel bis Rhein-Main.">
-<meta property="og:image" content="https://massivhaus.poll-gruppe.com/assets/img/hero-haus-start.jpg">
+<meta property="og:image" content="https://massivhaus.poll-gruppe.com/assets/img/hero-haus-hell.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Massivhaus schlüsselfertig bauen | Poll Massivhaus">
 <meta name="twitter:description" content="Schlüsselfertiges Massivhaus, individuell geplant – zum Festpreis, mit planbarer Bauzeit. Regional von der Eifel bis Rhein-Main.">
-<meta name="twitter:image" content="https://massivhaus.poll-gruppe.com/assets/img/hero-haus-start.jpg">
+<meta name="twitter:image" content="https://massivhaus.poll-gruppe.com/assets/img/hero-haus-hell.jpg">
 <meta name="theme-color" content="#D6001C">
 <link rel="icon" href="assets/img/favicon.png">
 <link rel="preload" href="assets/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
@@ -160,7 +160,24 @@ h2.section-title{
 .hero{position:relative;min-height:94svh;display:flex;align-items:flex-end;padding-top:140px;overflow:hidden;}
 .hero-media{position:absolute;inset:0;z-index:0;}
 .hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 30%;transform:scale(1.08);will-change:transform;}
-.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(20,18,16,.72) 0%, rgba(20,18,16,.30) 32%, rgba(20,18,16,.40) 62%, rgba(16,14,12,.92) 100%);}
+/* Helles Hero-Motiv: Der Verlauf haelt nur noch unten genug Grund fuer die weisse
+   Schrift; oben und in der Mitte bleibt das Bild weitgehend unangetastet, damit es
+   hell und freundlich wirkt. Die Kopfleiste bringt ihren eigenen Verlauf mit. */
+.hero-media::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(90deg, rgba(16,14,12,.60) 0%, rgba(16,14,12,.50) 46%, rgba(16,14,12,.26) 82%, rgba(16,14,12,.14) 100%),
+  linear-gradient(180deg, rgba(20,18,16,.26) 0%, rgba(20,18,16,.10) 30%, rgba(20,18,16,.30) 58%, rgba(16,14,12,.74) 100%);}
+/* Weicher Schatten: haelt die Schrift auch ueber hellen Bildstellen (Himmel,
+   Rasen) lesbar, ohne dass das Motiv dafuer abgedunkelt werden muss. */
+.hero-kicker-main,.hero-kicker-sub,.hero h1,.hero-sub{text-shadow:0 1px 3px rgba(12,10,8,.38), 0 2px 18px rgba(12,10,8,.30);}
+/* Mobil ist der Bildausschnitt ein schmaler Streifen und der Text liegt mit 15-61%
+   der Hero-Hoehe mitten darin - nicht unten wie auf Desktop. Deshalb dort ein
+   gleichmaessigerer, kraeftigerer Grund und ein Ausschnitt, der das Haus zeigt. */
+@media (max-width:900px){
+  .hero-media img{object-position:80% 50%;}
+  .hero-media::after{background:linear-gradient(180deg, rgba(16,14,12,.52) 0%, rgba(16,14,12,.68) 30%, rgba(16,14,12,.70) 62%, rgba(16,14,12,.84) 100%);}
+  /* Die gedaempfte Regionenzeile (56% Weiss) ist auf dem kleinen Display zu schwach. */
+  .hero .hero-kicker-sub{color:rgba(255,255,255,.80);}   /* .hero davor: die Basisregel steht weiter unten im Stylesheet */
+}
 .hero-inner{position:relative;z-index:1;width:100%;padding-bottom:70px;color:var(--white);}
 .hero-kicker{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:#F0B9AA;margin-bottom:22px;max-width:60ch;flex-wrap:wrap;}
 .hero-kicker::before{content:"";width:26px;height:1px;background:#F0B9AA;flex:none;}
@@ -897,7 +914,7 @@ h2.section-title{
   "@type": "HomeAndConstructionBusiness",
   "name": "Poll Massivhaus",
   "url": "https://massivhaus.poll-gruppe.com/",
-  "image": "https://massivhaus.poll-gruppe.com/assets/img/hero-haus-start.jpg",
+  "image": "https://massivhaus.poll-gruppe.com/assets/img/hero-haus-hell.jpg",
   "logo": "https://massivhaus.poll-gruppe.com/assets/img/logo.png",
   "description": "Poll Massivhaus baut individuell geplante Einfamilienhäuser, Doppelhäuser und Häuser mit Einliegerwohnung – transparent, persönlich begleitet, in Massivbauweise.",
   "telephone": "+49 2695 88 23 900",
@@ -1052,7 +1069,7 @@ h2.section-title{
 <main id="top">
 <section class="hero hero-anim" id="heroSection">
   <div class="hero-media" id="heroMedia">
-    <img src="assets/img/hero-haus-start.jpg" alt="Modern gebautes Poll-Massivhaus in der Abenddämmerung">
+    <img src="assets/img/hero-haus-hell.jpg" alt="Modernes Poll-Massivhaus mit Satteldach, Garage und Garten im Sonnenlicht">
   </div>
   <div class="hero-inner container">
     <p class="hero-kicker-main">Ihr regionaler Partner für Massivhausbau</p>
